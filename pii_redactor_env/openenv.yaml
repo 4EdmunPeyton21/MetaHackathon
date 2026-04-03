@@ -1,0 +1,55 @@
+spec_version: 1
+name: pii_redactor_env
+version: "0.1.0"
+description: >
+  Data Privacy Compliance Agent — An OpenEnv environment where an AI agent
+  acts as a Data Engineer to redact PII (credit cards, SSNs, emails, phone
+  numbers) from messy customer data files (CSV, text logs, nested JSON)
+  without corrupting non-sensitive data.
+
+type: space
+runtime: fastapi
+app: server.app:app
+port: 7860
+
+action: PIIAction
+observation: PIIObservation
+
+tasks:
+  - id: easy
+    name: "Redact Credit Card Numbers from CSV"
+    description: >
+      Given a customers.csv file with ~500 rows, redact all credit card
+      numbers found in any column. Preserve row count and all non-PII data.
+    difficulty: easy
+    max_steps: 15
+    seed_data: data/easy/
+
+  - id: medium
+    name: "Redact SSNs from Chat Logs"
+    description: >
+      Given a multi-party chat transcript (chat_logs.txt), find and redact
+      all Social Security Numbers while preserving message structure and
+      non-sensitive numeric data.
+    difficulty: medium
+    max_steps: 20
+    seed_data: data/medium/
+
+  - id: hard
+    name: "Redact Mixed PII from Nested JSON"
+    description: >
+      Given a deeply nested JSON file (3-5 levels), find and redact all
+      PII types (credit cards, SSNs, emails, phone numbers) at any depth.
+      Preserve JSON structure and all non-PII values.
+    difficulty: hard
+    max_steps: 30
+    seed_data: data/hard/
+
+metadata:
+  author: "PII Redactor Team"
+  license: "BSD-3-Clause"
+  tags:
+    - data-privacy
+    - pii-redaction
+    - compliance
+    - data-engineering

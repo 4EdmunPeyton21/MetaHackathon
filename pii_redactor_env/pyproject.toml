@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pii-redactor-env"
+version = "0.1.0"
+description = "Data Privacy Compliance Agent — OpenEnv environment for PII redaction"
+readme = "README.md"
+license = {text = "BSD-3-Clause"}
+requires-python = ">=3.10"
+dependencies = [
+    "openenv-core>=0.2.0",
+    "pydantic>=2.0.0",
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "faker>=20.0",
+    "openai>=1.0.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["pii_redactor_env*"]

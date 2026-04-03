@@ -1,0 +1,4407 @@
+{
+  "company": "Acme Data Corp",
+  "export_date": "2024-03-15",
+  "version": "2.1.0",
+  "customers": [
+    {
+      "id": "CUST-001",
+      "profile": {
+        "first_name": "Kevin",
+        "last_name": "Rojas",
+        "contact": {
+          "email": "kevin.rojas@cochran-flowers.com",
+          "phone": "(587) 325-5308",
+          "address": {
+            "street": "6621 Amanda Neck",
+            "city": "South Stephanieborough",
+            "state": "DC",
+            "zip": "27459"
+          }
+        },
+        "ssn": "181-64-4924"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-99737",
+          "date": "2025-08-08",
+          "total": 551.01,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4668459090221",
+            "expiry": "11/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-212",
+              "name": "Out Kit",
+              "qty": 2,
+              "price": 95.29
+            },
+            {
+              "sku": "PROD-149",
+              "name": "Professional Pro",
+              "qty": 8,
+              "price": 310.78
+            },
+            {
+              "sku": "PROD-140",
+              "name": "Successful Bundle",
+              "qty": 8,
+              "price": 97.96
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-29942",
+          "date": "2025-05-08",
+          "total": 108.77,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3563618637159742",
+            "expiry": "09/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-498",
+              "name": "Congress Pro",
+              "qty": 5,
+              "price": 138.25
+            },
+            {
+              "sku": "PROD-367",
+              "name": "Body Set",
+              "qty": 1,
+              "price": 120.24
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-11930",
+          "date": "2025-09-25",
+          "total": 992.22,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4097023164334813",
+            "expiry": "06/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-403",
+              "name": "Art Set",
+              "qty": 6,
+              "price": 234.52
+            },
+            {
+              "sku": "PROD-406",
+              "name": "Home Pro",
+              "qty": 6,
+              "price": 44.71
+            },
+            {
+              "sku": "PROD-385",
+              "name": "National Kit",
+              "qty": 1,
+              "price": 136.92
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-51014",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "low",
+          "transcript": "Customer Kevin Rojas contacted support. Verified with SSN 181-64-4924. Callback number: (587) 325-5308. Issue resolved with $74 credit."
+        }
+      ],
+      "loyalty_points": 4078,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-002",
+      "profile": {
+        "first_name": "Kyle",
+        "last_name": "Meyers",
+        "contact": {
+          "email": "kyle.meyers@wells.org",
+          "phone": "(989) 553-5049",
+          "address": {
+            "street": "6291 Hale Cape Apt. 248",
+            "city": "Elizabethland",
+            "state": "UT",
+            "zip": "95729"
+          }
+        },
+        "ssn": "855-14-4263"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-22315",
+          "date": "2026-03-21",
+          "total": 1047.07,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4430271693850",
+            "expiry": "04/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-349",
+              "name": "Outside Pack",
+              "qty": 6,
+              "price": 83.51
+            },
+            {
+              "sku": "PROD-373",
+              "name": "Until Pro",
+              "qty": 9,
+              "price": 262.86
+            },
+            {
+              "sku": "PROD-130",
+              "name": "Military Set",
+              "qty": 5,
+              "price": 103.37
+            },
+            {
+              "sku": "PROD-455",
+              "name": "Magazine Pro",
+              "qty": 4,
+              "price": 486.77
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-92956",
+          "date": "2025-06-10",
+          "total": 873.98,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "30014754692635",
+            "expiry": "01/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-300",
+              "name": "We Pro",
+              "qty": 7,
+              "price": 395.63
+            },
+            {
+              "sku": "PROD-005",
+              "name": "Prepare Pro",
+              "qty": 10,
+              "price": 392.82
+            },
+            {
+              "sku": "PROD-244",
+              "name": "Significant Bundle",
+              "qty": 3,
+              "price": 188.84
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 4075,
+      "account_status": "active"
+    },
+    {
+      "id": "CUST-003",
+      "profile": {
+        "first_name": "Jennifer",
+        "last_name": "Robinson",
+        "contact": {
+          "email": "jennifer.robinson@jenkins-gill.com",
+          "phone": "(711) 193-6544",
+          "address": {
+            "street": "5636 Alex Crescent Apt. 577",
+            "city": "Jonesside",
+            "state": "TN",
+            "zip": "32258"
+          }
+        },
+        "ssn": "877-90-1983"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-94485",
+          "date": "2025-04-30",
+          "total": 316.3,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "341856724380707",
+            "expiry": "09/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-250",
+              "name": "Purpose Kit",
+              "qty": 6,
+              "price": 490.93
+            },
+            {
+              "sku": "PROD-404",
+              "name": "Run Pack",
+              "qty": 8,
+              "price": 367.93
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 6189,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-004",
+      "profile": {
+        "first_name": "Jennifer",
+        "last_name": "Kim",
+        "contact": {
+          "email": "jennifer.kim@hoover-skinner.com",
+          "phone": "(941) 237-5107",
+          "address": {
+            "street": "06005 Erin Circles",
+            "city": "North Laura",
+            "state": "MP",
+            "zip": "87547"
+          }
+        },
+        "ssn": "140-72-8168"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-81137",
+          "date": "2025-05-02",
+          "total": 1397.11,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "676212418625",
+            "expiry": "04/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-279",
+              "name": "Remain Pack",
+              "qty": 6,
+              "price": 367.54
+            },
+            {
+              "sku": "PROD-141",
+              "name": "Source Bundle",
+              "qty": 9,
+              "price": 84.37
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-30319",
+          "date": "2026-03-14",
+          "total": 904.27,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "676342752307",
+            "expiry": "05/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-233",
+              "name": "Republican Pro",
+              "qty": 9,
+              "price": 192.63
+            },
+            {
+              "sku": "PROD-095",
+              "name": "No Pro",
+              "qty": 10,
+              "price": 429.13
+            },
+            {
+              "sku": "PROD-398",
+              "name": "Direction Bundle",
+              "qty": 4,
+              "price": 163.74
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-96283",
+          "date": "2026-01-24",
+          "total": 1934.65,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "30081647090061",
+            "expiry": "07/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-393",
+              "name": "Defense Bundle",
+              "qty": 3,
+              "price": 308.45
+            },
+            {
+              "sku": "PROD-166",
+              "name": "Woman Set",
+              "qty": 6,
+              "price": 59.68
+            },
+            {
+              "sku": "PROD-268",
+              "name": "Enjoy Pro",
+              "qty": 1,
+              "price": 418.42
+            },
+            {
+              "sku": "PROD-067",
+              "name": "House Kit",
+              "qty": 1,
+              "price": 105.03
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-87235",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "high",
+          "transcript": "Customer Jennifer Kim contacted support. Verified with SSN 140-72-8168. Email on file: jennifer.kim@hoover-skinner.com. Issue resolved with $109 credit."
+        }
+      ],
+      "loyalty_points": 9671,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-005",
+      "profile": {
+        "first_name": "Gary",
+        "last_name": "Jackson",
+        "contact": {
+          "email": "gary.jackson@hunt-ochoa.com",
+          "phone": "(250) 475-4616",
+          "address": {
+            "street": "63731 Santos Land Apt. 136",
+            "city": "Katrinafort",
+            "state": "CT",
+            "zip": "93893"
+          }
+        },
+        "ssn": "720-19-1214"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-74409",
+          "date": "2025-08-05",
+          "total": 1857.52,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "213193866133156",
+            "expiry": "02/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-185",
+              "name": "Consumer Bundle",
+              "qty": 7,
+              "price": 411.9
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-10225",
+          "date": "2026-04-02",
+          "status": "pending",
+          "priority": "low",
+          "transcript": "Customer Gary Jackson contacted support. Verified with SSN 720-19-1214. Issue resolved with $197 credit."
+        },
+        {
+          "ticket_id": "TKT-31279",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "low",
+          "transcript": "Customer Gary Jackson contacted support. Callback number: (250) 475-4616. Issue resolved with $195 credit."
+        }
+      ],
+      "loyalty_points": 3164,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-006",
+      "profile": {
+        "first_name": "Amanda",
+        "last_name": "Mooney",
+        "contact": {
+          "email": "amanda.mooney@jackson.biz",
+          "phone": "(872) 354-3931",
+          "address": {
+            "street": "339 Boyd Falls",
+            "city": "Sotoland",
+            "state": "VI",
+            "zip": "64941"
+          }
+        },
+        "ssn": "671-81-7802"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-93705",
+          "date": "2025-11-16",
+          "total": 1157.36,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4525715099768385",
+            "expiry": "11/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-453",
+              "name": "Sea Pro",
+              "qty": 3,
+              "price": 397.27
+            },
+            {
+              "sku": "PROD-282",
+              "name": "Add Set",
+              "qty": 9,
+              "price": 172.07
+            },
+            {
+              "sku": "PROD-081",
+              "name": "Early Bundle",
+              "qty": 10,
+              "price": 224.29
+            },
+            {
+              "sku": "PROD-181",
+              "name": "Against Pack",
+              "qty": 9,
+              "price": 495.77
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-58722",
+          "date": "2025-08-25",
+          "total": 830.56,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3543-6391-0257-4327",
+            "expiry": "11/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-312",
+              "name": "Democratic Kit",
+              "qty": 10,
+              "price": 275.08
+            },
+            {
+              "sku": "PROD-193",
+              "name": "Quality Bundle",
+              "qty": 5,
+              "price": 183.2
+            },
+            {
+              "sku": "PROD-232",
+              "name": "Always Set",
+              "qty": 7,
+              "price": 5.1
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-47287",
+          "date": "2025-08-13",
+          "total": 1195.57,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4524508640351",
+            "expiry": "09/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-004",
+              "name": "Eight Pack",
+              "qty": 4,
+              "price": 111.34
+            },
+            {
+              "sku": "PROD-162",
+              "name": "Describe Pro",
+              "qty": 5,
+              "price": 459.96
+            },
+            {
+              "sku": "PROD-262",
+              "name": "Notice Bundle",
+              "qty": 10,
+              "price": 463.33
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 1544,
+      "account_status": "active"
+    },
+    {
+      "id": "CUST-007",
+      "profile": {
+        "first_name": "Chad",
+        "last_name": "Lee",
+        "contact": {
+          "email": "chad.lee@braun.com",
+          "phone": "(671) 464-3557",
+          "address": {
+            "street": "52732 Adam Wall Suite 766",
+            "city": "Wallerstad",
+            "state": "MS",
+            "zip": "64667"
+          }
+        },
+        "ssn": "241-43-7014"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-40539",
+          "date": "2025-07-28",
+          "total": 519.93,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3538167423362930",
+            "expiry": "05/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-292",
+              "name": "Feeling Kit",
+              "qty": 2,
+              "price": 363.17
+            },
+            {
+              "sku": "PROD-406",
+              "name": "Part Set",
+              "qty": 3,
+              "price": 246.7
+            },
+            {
+              "sku": "PROD-461",
+              "name": "List Bundle",
+              "qty": 2,
+              "price": 299.64
+            },
+            {
+              "sku": "PROD-154",
+              "name": "Prove Pro",
+              "qty": 10,
+              "price": 193.87
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-53829",
+          "date": "2026-01-12",
+          "total": 702.38,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4715662776896",
+            "expiry": "07/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-446",
+              "name": "Lead Kit",
+              "qty": 10,
+              "price": 464.68
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-92862",
+          "date": "2025-09-25",
+          "total": 771.15,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4066 1498 2824 6742",
+            "expiry": "05/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-164",
+              "name": "Federal Bundle",
+              "qty": 10,
+              "price": 79.04
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-59407",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "low",
+          "transcript": "Customer Chad Lee contacted support. Email on file: chad.lee@braun.com. Issue resolved with $110 credit."
+        },
+        {
+          "ticket_id": "TKT-11819",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "high",
+          "transcript": "Customer Chad Lee contacted support. Verified with SSN 241-43-7014. Callback number: (671) 464-3557. Issue resolved with $96 credit."
+        }
+      ],
+      "loyalty_points": 807,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-008",
+      "profile": {
+        "first_name": "Kyle",
+        "last_name": "Archer",
+        "contact": {
+          "email": "kyle.archer@ortiz.com",
+          "phone": "(608) 368-2393",
+          "address": {
+            "street": "95243 Hale Avenue",
+            "city": "Port Travis",
+            "state": "CT",
+            "zip": "09655"
+          }
+        },
+        "ssn": "508-74-8118"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-27677",
+          "date": "2025-07-05",
+          "total": 967.04,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "6011364587506639",
+            "expiry": "04/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-334",
+              "name": "Mean Bundle",
+              "qty": 4,
+              "price": 282.78
+            },
+            {
+              "sku": "PROD-377",
+              "name": "Already Bundle",
+              "qty": 4,
+              "price": 124.95
+            },
+            {
+              "sku": "PROD-137",
+              "name": "Will Set",
+              "qty": 6,
+              "price": 343.95
+            },
+            {
+              "sku": "PROD-295",
+              "name": "Tax Pro",
+              "qty": 2,
+              "price": 337.52
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-57876",
+          "date": "2026-01-26",
+          "total": 703.13,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "342497243992018",
+            "expiry": "06/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-395",
+              "name": "Best Pack",
+              "qty": 3,
+              "price": 493.89
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-67961",
+          "date": "2025-07-30",
+          "total": 1250.13,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4691 8362 6448 8696",
+            "expiry": "08/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-103",
+              "name": "Similar Pack",
+              "qty": 3,
+              "price": 380.08
+            },
+            {
+              "sku": "PROD-437",
+              "name": "Its Pro",
+              "qty": 2,
+              "price": 371.09
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 2419,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-009",
+      "profile": {
+        "first_name": "Kim",
+        "last_name": "Butler",
+        "contact": {
+          "email": "kim.butler@pena-quinn.com",
+          "phone": "(214) 451-2823",
+          "address": {
+            "street": "9121 Miller Crossing Suite 150",
+            "city": "South Todd",
+            "state": "WV",
+            "zip": "13714"
+          }
+        },
+        "ssn": "412-67-8719"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-37395",
+          "date": "2026-02-10",
+          "total": 1482.63,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4223-7281-7932-3026",
+            "expiry": "04/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-281",
+              "name": "Song Set",
+              "qty": 10,
+              "price": 366.31
+            },
+            {
+              "sku": "PROD-073",
+              "name": "Dark Pro",
+              "qty": 7,
+              "price": 293.59
+            },
+            {
+              "sku": "PROD-340",
+              "name": "Event Bundle",
+              "qty": 1,
+              "price": 131.45
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 4653,
+      "account_status": "active"
+    },
+    {
+      "id": "CUST-010",
+      "profile": {
+        "first_name": "Albert",
+        "last_name": "Adams",
+        "contact": {
+          "email": "albert.adams@ortega.com",
+          "phone": "(913) 732-5444",
+          "address": {
+            "street": "56690 Marks Valley Apt. 076",
+            "city": "North Carolyn",
+            "state": "VI",
+            "zip": "70051"
+          }
+        },
+        "ssn": "154-69-1136"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-96556",
+          "date": "2025-12-22",
+          "total": 549.91,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4698477596552",
+            "expiry": "11/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-010",
+              "name": "Voice Pack",
+              "qty": 7,
+              "price": 119.43
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-79263",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "low",
+          "transcript": "Customer Albert Adams contacted support. Issue resolved with $134 credit."
+        }
+      ],
+      "loyalty_points": 3258,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-011",
+      "profile": {
+        "first_name": "Joshua",
+        "last_name": "Lyons",
+        "contact": {
+          "email": "joshua.lyons@richardson.info",
+          "phone": "(668) 674-1352",
+          "address": {
+            "street": "872 Friedman Orchard Apt. 332",
+            "city": "North Ryantown",
+            "state": "GA",
+            "zip": "43296"
+          }
+        },
+        "ssn": "140-41-9673"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-74216",
+          "date": "2025-10-07",
+          "total": 792.87,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "180030505057397",
+            "expiry": "03/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-351",
+              "name": "Instead Pack",
+              "qty": 6,
+              "price": 314.49
+            },
+            {
+              "sku": "PROD-121",
+              "name": "Single Bundle",
+              "qty": 5,
+              "price": 406.89
+            },
+            {
+              "sku": "PROD-321",
+              "name": "Position Pack",
+              "qty": 7,
+              "price": 445.75
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-82737",
+          "date": "2025-05-21",
+          "total": 1898.74,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "2286716493289807",
+            "expiry": "04/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-460",
+              "name": "Modern Set",
+              "qty": 3,
+              "price": 48.46
+            },
+            {
+              "sku": "PROD-196",
+              "name": "Style Bundle",
+              "qty": 10,
+              "price": 436.99
+            },
+            {
+              "sku": "PROD-352",
+              "name": "Begin Kit",
+              "qty": 7,
+              "price": 123.98
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 6987,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-012",
+      "profile": {
+        "first_name": "Raven",
+        "last_name": "Miranda",
+        "contact": {
+          "email": "raven.miranda@ball.info",
+          "phone": "(819) 437-8359",
+          "address": {
+            "street": "60875 Lisa Hill",
+            "city": "South Erin",
+            "state": "FL",
+            "zip": "79336"
+          }
+        },
+        "ssn": "655-26-4387"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-86156",
+          "date": "2026-02-09",
+          "total": 1087.29,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4287153991566863",
+            "expiry": "04/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-353",
+              "name": "Early Bundle",
+              "qty": 3,
+              "price": 217.88
+            },
+            {
+              "sku": "PROD-466",
+              "name": "Dog Kit",
+              "qty": 10,
+              "price": 458.97
+            },
+            {
+              "sku": "PROD-163",
+              "name": "Event Pro",
+              "qty": 9,
+              "price": 268.82
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-25517",
+          "date": "2025-11-12",
+          "total": 376.43,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "2261 1159 3195 2564",
+            "expiry": "03/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-392",
+              "name": "Since Pack",
+              "qty": 7,
+              "price": 480.79
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-68065",
+          "date": "2025-10-20",
+          "total": 1493.76,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "570983665524",
+            "expiry": "11/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-078",
+              "name": "Record Kit",
+              "qty": 2,
+              "price": 70.12
+            },
+            {
+              "sku": "PROD-014",
+              "name": "Play Bundle",
+              "qty": 10,
+              "price": 137.1
+            },
+            {
+              "sku": "PROD-291",
+              "name": "Performance Bundle",
+              "qty": 4,
+              "price": 300.2
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 427,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-013",
+      "profile": {
+        "first_name": "Justin",
+        "last_name": "Burgess",
+        "contact": {
+          "email": "justin.burgess@johnson.com",
+          "phone": "(281) 804-8808",
+          "address": {
+            "street": "33059 Erika Walks",
+            "city": "South Stephanie",
+            "state": "NE",
+            "zip": "89557"
+          }
+        },
+        "ssn": "237-74-8680"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-59015",
+          "date": "2025-09-01",
+          "total": 376.11,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4374605233027642082",
+            "expiry": "07/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-071",
+              "name": "Green Kit",
+              "qty": 4,
+              "price": 117.01
+            },
+            {
+              "sku": "PROD-210",
+              "name": "Knowledge Pro",
+              "qty": 5,
+              "price": 475.35
+            },
+            {
+              "sku": "PROD-114",
+              "name": "Resource Kit",
+              "qty": 4,
+              "price": 37.74
+            },
+            {
+              "sku": "PROD-475",
+              "name": "Material Set",
+              "qty": 10,
+              "price": 247.52
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-69971",
+          "date": "2026-03-04",
+          "total": 1776.3,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "376184438612598",
+            "expiry": "07/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-312",
+              "name": "Support Set",
+              "qty": 6,
+              "price": 200.1
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-84964",
+          "date": "2025-07-24",
+          "total": 1191.67,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "060447292776",
+            "expiry": "09/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-267",
+              "name": "Watch Pro",
+              "qty": 8,
+              "price": 231.17
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 4025,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-014",
+      "profile": {
+        "first_name": "Meagan",
+        "last_name": "Howe",
+        "contact": {
+          "email": "meagan.howe@kelly.com",
+          "phone": "(750) 505-1643",
+          "address": {
+            "street": "51826 Phillip Viaduct",
+            "city": "Brownshire",
+            "state": "ND",
+            "zip": "94053"
+          }
+        },
+        "ssn": "671-59-9456"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-34884",
+          "date": "2025-04-15",
+          "total": 589.45,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "502085962632",
+            "expiry": "07/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-237",
+              "name": "By Kit",
+              "qty": 7,
+              "price": 150.74
+            },
+            {
+              "sku": "PROD-471",
+              "name": "Effect Pro",
+              "qty": 9,
+              "price": 452.32
+            },
+            {
+              "sku": "PROD-238",
+              "name": "Industry Set",
+              "qty": 2,
+              "price": 362.71
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-33562",
+          "date": "2025-05-18",
+          "total": 1559.67,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "30492617647501",
+            "expiry": "12/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-202",
+              "name": "But Set",
+              "qty": 6,
+              "price": 228.19
+            },
+            {
+              "sku": "PROD-092",
+              "name": "Beautiful Set",
+              "qty": 10,
+              "price": 448.83
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-69596",
+          "date": "2025-12-08",
+          "total": 189.46,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "2583099974192679",
+            "expiry": "06/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-368",
+              "name": "Scientist Pro",
+              "qty": 2,
+              "price": 61.51
+            },
+            {
+              "sku": "PROD-231",
+              "name": "Leader Pack",
+              "qty": 2,
+              "price": 264.29
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-50634",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "low",
+          "transcript": "Customer Meagan Howe contacted support. Issue resolved with $50 credit."
+        }
+      ],
+      "loyalty_points": 2799,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-015",
+      "profile": {
+        "first_name": "Lori",
+        "last_name": "Pearson",
+        "contact": {
+          "email": "lori.pearson@sheppard.com",
+          "phone": "(779) 992-3459",
+          "address": {
+            "street": "542 Jones Glens",
+            "city": "Patrickburgh",
+            "state": "MO",
+            "zip": "60278"
+          }
+        },
+        "ssn": "266-28-3930"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-64995",
+          "date": "2026-02-26",
+          "total": 623.04,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3508751029321840",
+            "expiry": "12/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-321",
+              "name": "Some Kit",
+              "qty": 2,
+              "price": 449.78
+            },
+            {
+              "sku": "PROD-492",
+              "name": "Already Kit",
+              "qty": 1,
+              "price": 313.17
+            },
+            {
+              "sku": "PROD-130",
+              "name": "Become Pro",
+              "qty": 8,
+              "price": 251.33
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-81237",
+          "date": "2025-05-26",
+          "total": 1616.83,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "2645-8260-3408-4876",
+            "expiry": "10/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-112",
+              "name": "Part Bundle",
+              "qty": 8,
+              "price": 229.6
+            },
+            {
+              "sku": "PROD-227",
+              "name": "Military Pro",
+              "qty": 10,
+              "price": 302.05
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-81741",
+          "date": "2026-02-28",
+          "total": 563.44,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3585988310303246",
+            "expiry": "11/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-026",
+              "name": "There Kit",
+              "qty": 3,
+              "price": 32.26
+            },
+            {
+              "sku": "PROD-179",
+              "name": "Dinner Pro",
+              "qty": 3,
+              "price": 427.65
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-7426",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "medium",
+          "transcript": "Customer Lori Pearson contacted support. Issue resolved with $32 credit."
+        },
+        {
+          "ticket_id": "TKT-91638",
+          "date": "2026-04-02",
+          "status": "open",
+          "priority": "medium",
+          "transcript": "Customer Lori Pearson contacted support. Email on file: lori.pearson@sheppard.com. Callback number: (779) 992-3459. Issue resolved with $179 credit."
+        }
+      ],
+      "loyalty_points": 9485,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-016",
+      "profile": {
+        "first_name": "Christopher",
+        "last_name": "King",
+        "contact": {
+          "email": "christopher.king@bentley-thomas.com",
+          "phone": "(236) 195-5903",
+          "address": {
+            "street": "186 Mark Corners",
+            "city": "Reginaview",
+            "state": "FL",
+            "zip": "30092"
+          }
+        },
+        "ssn": "430-57-7208"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-82151",
+          "date": "2025-11-22",
+          "total": 139.2,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "2253-5989-2625-6606",
+            "expiry": "08/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-356",
+              "name": "End Pack",
+              "qty": 6,
+              "price": 265.89
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-96646",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "medium",
+          "transcript": "Customer Christopher King contacted support. Verified with SSN 430-57-7208. Email on file: christopher.king@bentley-thomas.com. Callback number: (236) 195-5903. Issue resolved with $156 credit."
+        },
+        {
+          "ticket_id": "TKT-38642",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "high",
+          "transcript": "Customer Christopher King contacted support. Issue resolved with $190 credit."
+        }
+      ],
+      "loyalty_points": 5185,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-017",
+      "profile": {
+        "first_name": "Joshua",
+        "last_name": "Garcia",
+        "contact": {
+          "email": "joshua.garcia@gray.com",
+          "phone": "(738) 688-6797",
+          "address": {
+            "street": "146 Bruce Roads Apt. 131",
+            "city": "New Brian",
+            "state": "WA",
+            "zip": "37968"
+          }
+        },
+        "ssn": "232-88-9132"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-92818",
+          "date": "2026-01-18",
+          "total": 1000.5,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4971 8594 8491 0258",
+            "expiry": "03/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-363",
+              "name": "Improve Pack",
+              "qty": 4,
+              "price": 5.78
+            },
+            {
+              "sku": "PROD-013",
+              "name": "Course Set",
+              "qty": 2,
+              "price": 370.05
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-90649",
+          "date": "2025-04-22",
+          "total": 1997.98,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "377924082226941",
+            "expiry": "07/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-180",
+              "name": "Why Bundle",
+              "qty": 4,
+              "price": 10.59
+            },
+            {
+              "sku": "PROD-104",
+              "name": "Share Pack",
+              "qty": 5,
+              "price": 396.15
+            },
+            {
+              "sku": "PROD-158",
+              "name": "Purpose Pack",
+              "qty": 9,
+              "price": 277.25
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-24920",
+          "date": "2026-04-02",
+          "total": 1374.81,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "349672757844689",
+            "expiry": "06/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-427",
+              "name": "Serious Kit",
+              "qty": 4,
+              "price": 168.6
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-85626",
+          "date": "2026-04-02",
+          "status": "open",
+          "priority": "medium",
+          "transcript": "Customer Joshua Garcia contacted support. Issue resolved with $19 credit."
+        }
+      ],
+      "loyalty_points": 2545,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-018",
+      "profile": {
+        "first_name": "Angela",
+        "last_name": "Vasquez",
+        "contact": {
+          "email": "angela.vasquez@hayden.net",
+          "phone": "(671) 985-9797",
+          "address": {
+            "street": "9705 Christina Isle",
+            "city": "Michaeltown",
+            "state": "MI",
+            "zip": "95191"
+          }
+        },
+        "ssn": "443-69-7782"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-78298",
+          "date": "2025-07-05",
+          "total": 605.69,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3577881609306857",
+            "expiry": "12/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-285",
+              "name": "Single Bundle",
+              "qty": 1,
+              "price": 108.09
+            },
+            {
+              "sku": "PROD-351",
+              "name": "Recently Pack",
+              "qty": 6,
+              "price": 37.78
+            },
+            {
+              "sku": "PROD-077",
+              "name": "Wife Pack",
+              "qty": 1,
+              "price": 172.88
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-92118",
+          "date": "2025-08-17",
+          "total": 1073.2,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "213197283215280",
+            "expiry": "03/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-096",
+              "name": "Approach Bundle",
+              "qty": 2,
+              "price": 432.97
+            },
+            {
+              "sku": "PROD-385",
+              "name": "Knowledge Pack",
+              "qty": 6,
+              "price": 356.37
+            },
+            {
+              "sku": "PROD-140",
+              "name": "Mission Set",
+              "qty": 2,
+              "price": 251.04
+            },
+            {
+              "sku": "PROD-122",
+              "name": "Hundred Pack",
+              "qty": 8,
+              "price": 415.58
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-38329",
+          "date": "2025-06-25",
+          "total": 1054.95,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4153-8144-7443-0965",
+            "expiry": "03/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-402",
+              "name": "Wind Pro",
+              "qty": 4,
+              "price": 457.11
+            },
+            {
+              "sku": "PROD-228",
+              "name": "Focus Bundle",
+              "qty": 1,
+              "price": 400.52
+            },
+            {
+              "sku": "PROD-464",
+              "name": "Woman Bundle",
+              "qty": 3,
+              "price": 99.15
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-13878",
+          "date": "2026-04-02",
+          "status": "open",
+          "priority": "low",
+          "transcript": "Customer Angela Vasquez contacted support. Issue resolved with $46 credit."
+        }
+      ],
+      "loyalty_points": 598,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-019",
+      "profile": {
+        "first_name": "Jacob",
+        "last_name": "Gomez",
+        "contact": {
+          "email": "jacob.gomez@jordan.com",
+          "phone": "(596) 830-9558",
+          "address": {
+            "street": "417 Martin Knoll",
+            "city": "Smithborough",
+            "state": "DE",
+            "zip": "25347"
+          }
+        },
+        "ssn": "218-10-6095"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-87894",
+          "date": "2025-07-27",
+          "total": 1745.03,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "213161702437651",
+            "expiry": "06/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-053",
+              "name": "His Bundle",
+              "qty": 5,
+              "price": 16.13
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-37261",
+          "date": "2026-04-02",
+          "status": "pending",
+          "priority": "medium",
+          "transcript": "Customer Jacob Gomez contacted support. Email on file: jacob.gomez@jordan.com. Callback number: (596) 830-9558. Issue resolved with $83 credit."
+        }
+      ],
+      "loyalty_points": 1927,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-020",
+      "profile": {
+        "first_name": "Justin",
+        "last_name": "Anderson",
+        "contact": {
+          "email": "justin.anderson@manning-santana.com",
+          "phone": "(352) 261-5483",
+          "address": {
+            "street": "030 Jordan Ranch Apt. 674",
+            "city": "Toddchester",
+            "state": "IA",
+            "zip": "81452"
+          }
+        },
+        "ssn": "217-11-9422"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-81110",
+          "date": "2025-05-13",
+          "total": 707.13,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4741678725686215",
+            "expiry": "06/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-483",
+              "name": "Structure Pack",
+              "qty": 10,
+              "price": 126.19
+            },
+            {
+              "sku": "PROD-037",
+              "name": "Against Pack",
+              "qty": 10,
+              "price": 446.66
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-7613",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "medium",
+          "transcript": "Customer Justin Anderson contacted support. Verified with SSN 217-11-9422. Email on file: justin.anderson@manning-santana.com. Issue resolved with $182 credit."
+        },
+        {
+          "ticket_id": "TKT-78693",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "high",
+          "transcript": "Customer Justin Anderson contacted support. Verified with SSN 217-11-9422. Callback number: (352) 261-5483. Issue resolved with $162 credit."
+        }
+      ],
+      "loyalty_points": 5826,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-021",
+      "profile": {
+        "first_name": "Elijah",
+        "last_name": "Dixon",
+        "contact": {
+          "email": "elijah.dixon@campbell.com",
+          "phone": "(540) 937-4246",
+          "address": {
+            "street": "26093 Michelle Light Suite 843",
+            "city": "West Ronald",
+            "state": "AR",
+            "zip": "67329"
+          }
+        },
+        "ssn": "830-95-9740"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-84421",
+          "date": "2025-09-04",
+          "total": 272.27,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3563-7189-2392-3122",
+            "expiry": "12/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-234",
+              "name": "American Pack",
+              "qty": 8,
+              "price": 237.92
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 2354,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-022",
+      "profile": {
+        "first_name": "Ronald",
+        "last_name": "Williams",
+        "contact": {
+          "email": "ronald.williams@adams.com",
+          "phone": "(464) 472-7423",
+          "address": {
+            "street": "43961 David Summit Apt. 093",
+            "city": "Lake Sean",
+            "state": "CT",
+            "zip": "10315"
+          }
+        },
+        "ssn": "287-99-6412"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-73898",
+          "date": "2025-05-11",
+          "total": 70.23,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3535-0200-0534-7493",
+            "expiry": "08/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-246",
+              "name": "Lawyer Set",
+              "qty": 3,
+              "price": 144.72
+            },
+            {
+              "sku": "PROD-179",
+              "name": "Crime Bundle",
+              "qty": 10,
+              "price": 68.06
+            },
+            {
+              "sku": "PROD-053",
+              "name": "Entire Set",
+              "qty": 2,
+              "price": 166.31
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-19296",
+          "date": "2026-01-15",
+          "total": 1586.94,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "30554110825551",
+            "expiry": "09/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-303",
+              "name": "Start Set",
+              "qty": 4,
+              "price": 312.33
+            },
+            {
+              "sku": "PROD-281",
+              "name": "Perform Kit",
+              "qty": 8,
+              "price": 194.99
+            },
+            {
+              "sku": "PROD-175",
+              "name": "Newspaper Kit",
+              "qty": 10,
+              "price": 218.42
+            },
+            {
+              "sku": "PROD-223",
+              "name": "Point Bundle",
+              "qty": 6,
+              "price": 274.54
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 2835,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-023",
+      "profile": {
+        "first_name": "Shelly",
+        "last_name": "Montgomery",
+        "contact": {
+          "email": "shelly.montgomery@swanson-mayo.com",
+          "phone": "(885) 179-8972",
+          "address": {
+            "street": "78686 Lawson Ford",
+            "city": "North Ernest",
+            "state": "IL",
+            "zip": "78110"
+          }
+        },
+        "ssn": "217-85-8584"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-22799",
+          "date": "2025-12-02",
+          "total": 1645.83,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "213102368485576",
+            "expiry": "03/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-036",
+              "name": "Series Bundle",
+              "qty": 2,
+              "price": 344.33
+            },
+            {
+              "sku": "PROD-306",
+              "name": "Buy Set",
+              "qty": 6,
+              "price": 249.68
+            },
+            {
+              "sku": "PROD-339",
+              "name": "Whether Pro",
+              "qty": 2,
+              "price": 112.72
+            },
+            {
+              "sku": "PROD-072",
+              "name": "Least Bundle",
+              "qty": 1,
+              "price": 379.75
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-29558",
+          "date": "2026-01-14",
+          "total": 911.42,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "2568 8029 4240 9037",
+            "expiry": "05/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-101",
+              "name": "Teacher Kit",
+              "qty": 6,
+              "price": 153.37
+            },
+            {
+              "sku": "PROD-407",
+              "name": "Information Pack",
+              "qty": 7,
+              "price": 360.31
+            },
+            {
+              "sku": "PROD-469",
+              "name": "Miss Pack",
+              "qty": 2,
+              "price": 293.45
+            },
+            {
+              "sku": "PROD-314",
+              "name": "Reveal Bundle",
+              "qty": 7,
+              "price": 424.58
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-93190",
+          "date": "2026-04-02",
+          "status": "pending",
+          "priority": "low",
+          "transcript": "Customer Shelly Montgomery contacted support. Verified with SSN 217-85-8584. Issue resolved with $10 credit."
+        }
+      ],
+      "loyalty_points": 4623,
+      "account_status": "active"
+    },
+    {
+      "id": "CUST-024",
+      "profile": {
+        "first_name": "Heather",
+        "last_name": "Suarez",
+        "contact": {
+          "email": "heather.suarez@gibson.com",
+          "phone": "(440) 542-7459",
+          "address": {
+            "street": "42408 Jennifer Spurs Suite 498",
+            "city": "Port Scott",
+            "state": "MD",
+            "zip": "35732"
+          }
+        },
+        "ssn": "740-50-7271"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-67041",
+          "date": "2026-04-02",
+          "total": 1094.79,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4481230834028",
+            "expiry": "11/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-072",
+              "name": "Use Kit",
+              "qty": 9,
+              "price": 195.37
+            },
+            {
+              "sku": "PROD-474",
+              "name": "Fall Pack",
+              "qty": 7,
+              "price": 81.36
+            },
+            {
+              "sku": "PROD-447",
+              "name": "Within Kit",
+              "qty": 3,
+              "price": 10.74
+            },
+            {
+              "sku": "PROD-332",
+              "name": "Cell Pro",
+              "qty": 3,
+              "price": 362.06
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-96235",
+          "date": "2025-04-24",
+          "total": 879.1,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4338105955184269453",
+            "expiry": "03/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-329",
+              "name": "Process Set",
+              "qty": 8,
+              "price": 447.32
+            },
+            {
+              "sku": "PROD-357",
+              "name": "Team Bundle",
+              "qty": 7,
+              "price": 313.51
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-30588",
+          "date": "2026-04-02",
+          "status": "open",
+          "priority": "medium",
+          "transcript": "Customer Heather Suarez contacted support. Issue resolved with $100 credit."
+        }
+      ],
+      "loyalty_points": 9905,
+      "account_status": "active"
+    },
+    {
+      "id": "CUST-025",
+      "profile": {
+        "first_name": "James",
+        "last_name": "Soto",
+        "contact": {
+          "email": "james.soto@moore-hall.biz",
+          "phone": "(791) 610-4878",
+          "address": {
+            "street": "02314 Sheena Rapid",
+            "city": "Port Tammyville",
+            "state": "ND",
+            "zip": "96987"
+          }
+        },
+        "ssn": "829-74-5411"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-85543",
+          "date": "2025-04-10",
+          "total": 740.27,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "347172722397246",
+            "expiry": "01/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-361",
+              "name": "Force Pack",
+              "qty": 2,
+              "price": 292.23
+            },
+            {
+              "sku": "PROD-493",
+              "name": "Commercial Pro",
+              "qty": 3,
+              "price": 366.44
+            },
+            {
+              "sku": "PROD-270",
+              "name": "Value Pack",
+              "qty": 8,
+              "price": 260.89
+            },
+            {
+              "sku": "PROD-268",
+              "name": "Cost Bundle",
+              "qty": 2,
+              "price": 126.39
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-96997",
+          "date": "2025-11-22",
+          "total": 1921.22,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "6011 1216 3761 8206",
+            "expiry": "02/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-314",
+              "name": "Black Pro",
+              "qty": 6,
+              "price": 269.84
+            },
+            {
+              "sku": "PROD-006",
+              "name": "Huge Set",
+              "qty": 8,
+              "price": 258.77
+            },
+            {
+              "sku": "PROD-241",
+              "name": "If Bundle",
+              "qty": 6,
+              "price": 213.4
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-96285",
+          "date": "2026-04-02",
+          "status": "pending",
+          "priority": "low",
+          "transcript": "Customer James Soto contacted support. Verified with SSN 829-74-5411. Email on file: james.soto@moore-hall.biz. Issue resolved with $87 credit."
+        }
+      ],
+      "loyalty_points": 7752,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-026",
+      "profile": {
+        "first_name": "Loretta",
+        "last_name": "Farrell",
+        "contact": {
+          "email": "loretta.farrell@harris.org",
+          "phone": "(373) 686-1845",
+          "address": {
+            "street": "13145 Christina Crest Suite 109",
+            "city": "East Roy",
+            "state": "MA",
+            "zip": "79093"
+          }
+        },
+        "ssn": "772-47-1447"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-20814",
+          "date": "2025-04-10",
+          "total": 262.37,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "30245723084815",
+            "expiry": "02/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-068",
+              "name": "Thank Bundle",
+              "qty": 5,
+              "price": 141.23
+            },
+            {
+              "sku": "PROD-132",
+              "name": "Another Pro",
+              "qty": 2,
+              "price": 303.89
+            },
+            {
+              "sku": "PROD-466",
+              "name": "Board Bundle",
+              "qty": 3,
+              "price": 331.28
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-32989",
+          "date": "2025-05-29",
+          "total": 529.89,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "180018620303663",
+            "expiry": "12/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-093",
+              "name": "Head Bundle",
+              "qty": 1,
+              "price": 174.71
+            },
+            {
+              "sku": "PROD-044",
+              "name": "Reality Kit",
+              "qty": 10,
+              "price": 467.3
+            },
+            {
+              "sku": "PROD-079",
+              "name": "Few Set",
+              "qty": 7,
+              "price": 386.33
+            },
+            {
+              "sku": "PROD-122",
+              "name": "Draw Set",
+              "qty": 3,
+              "price": 109.37
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-7884",
+          "date": "2026-04-02",
+          "status": "open",
+          "priority": "medium",
+          "transcript": "Customer Loretta Farrell contacted support. Email on file: loretta.farrell@harris.org. Callback number: (373) 686-1845. Issue resolved with $39 credit."
+        },
+        {
+          "ticket_id": "TKT-31626",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "high",
+          "transcript": "Customer Loretta Farrell contacted support. Verified with SSN 772-47-1447. Email on file: loretta.farrell@harris.org. Issue resolved with $146 credit."
+        }
+      ],
+      "loyalty_points": 6390,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-027",
+      "profile": {
+        "first_name": "Howard",
+        "last_name": "Coleman",
+        "contact": {
+          "email": "howard.coleman@mcdaniel.com",
+          "phone": "(468) 248-9690",
+          "address": {
+            "street": "1968 Jacqueline Freeway",
+            "city": "Aarontown",
+            "state": "MN",
+            "zip": "73688"
+          }
+        },
+        "ssn": "545-11-5731"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-98931",
+          "date": "2025-05-07",
+          "total": 638.22,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4541022526771196422",
+            "expiry": "09/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-050",
+              "name": "Future Bundle",
+              "qty": 6,
+              "price": 478.31
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-90017",
+          "date": "2025-10-12",
+          "total": 1836.9,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4655-7676-9523-6681",
+            "expiry": "05/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-137",
+              "name": "Nothing Pro",
+              "qty": 5,
+              "price": 328.9
+            },
+            {
+              "sku": "PROD-201",
+              "name": "None Set",
+              "qty": 4,
+              "price": 368.49
+            },
+            {
+              "sku": "PROD-302",
+              "name": "Mind Kit",
+              "qty": 9,
+              "price": 172.02
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-9906",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "medium",
+          "transcript": "Customer Howard Coleman contacted support. Email on file: howard.coleman@mcdaniel.com. Callback number: (468) 248-9690. Issue resolved with $12 credit."
+        },
+        {
+          "ticket_id": "TKT-96060",
+          "date": "2026-04-02",
+          "status": "pending",
+          "priority": "medium",
+          "transcript": "Customer Howard Coleman contacted support. Verified with SSN 545-11-5731. Email on file: howard.coleman@mcdaniel.com. Issue resolved with $66 credit."
+        }
+      ],
+      "loyalty_points": 3163,
+      "account_status": "active"
+    },
+    {
+      "id": "CUST-028",
+      "profile": {
+        "first_name": "Thomas",
+        "last_name": "Anderson",
+        "contact": {
+          "email": "thomas.anderson@brown.com",
+          "phone": "(224) 734-2506",
+          "address": {
+            "street": "7849 Fletcher Manors Apt. 418",
+            "city": "Spenceberg",
+            "state": "WA",
+            "zip": "28270"
+          }
+        },
+        "ssn": "158-86-4552"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-25963",
+          "date": "2025-08-24",
+          "total": 1419.07,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4728 6333 0212 6066",
+            "expiry": "02/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-193",
+              "name": "Arm Bundle",
+              "qty": 3,
+              "price": 448.52
+            },
+            {
+              "sku": "PROD-357",
+              "name": "Science Kit",
+              "qty": 5,
+              "price": 150.81
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-19924",
+          "date": "2025-11-09",
+          "total": 1281.17,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "2711 7920 2521 3107",
+            "expiry": "05/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-132",
+              "name": "Theory Kit",
+              "qty": 2,
+              "price": 142.26
+            },
+            {
+              "sku": "PROD-032",
+              "name": "Teach Set",
+              "qty": 7,
+              "price": 169.66
+            },
+            {
+              "sku": "PROD-031",
+              "name": "Keep Pack",
+              "qty": 5,
+              "price": 93.08
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-74450",
+          "date": "2025-11-22",
+          "total": 1959.05,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4728476570412002",
+            "expiry": "04/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-092",
+              "name": "Society Set",
+              "qty": 2,
+              "price": 76.22
+            },
+            {
+              "sku": "PROD-394",
+              "name": "Consumer Set",
+              "qty": 4,
+              "price": 308.91
+            },
+            {
+              "sku": "PROD-055",
+              "name": "Most Set",
+              "qty": 5,
+              "price": 56.13
+            },
+            {
+              "sku": "PROD-038",
+              "name": "College Pro",
+              "qty": 10,
+              "price": 365.13
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-5959",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "medium",
+          "transcript": "Customer Thomas Anderson contacted support. Verified with SSN 158-86-4552. Issue resolved with $10 credit."
+        }
+      ],
+      "loyalty_points": 2483,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-029",
+      "profile": {
+        "first_name": "Richard",
+        "last_name": "Brown",
+        "contact": {
+          "email": "richard.brown@white-reese.net",
+          "phone": "(537) 500-1060",
+          "address": {
+            "street": "909 Williams Island",
+            "city": "West Alanstad",
+            "state": "WV",
+            "zip": "37516"
+          }
+        },
+        "ssn": "627-72-8833"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-19188",
+          "date": "2025-05-02",
+          "total": 1084.86,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3577-5662-0563-4113",
+            "expiry": "01/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-063",
+              "name": "Him Bundle",
+              "qty": 9,
+              "price": 467.85
+            },
+            {
+              "sku": "PROD-184",
+              "name": "Player Pack",
+              "qty": 5,
+              "price": 203.3
+            },
+            {
+              "sku": "PROD-324",
+              "name": "Start Pro",
+              "qty": 6,
+              "price": 269.64
+            },
+            {
+              "sku": "PROD-492",
+              "name": "Throughout Pack",
+              "qty": 2,
+              "price": 421.38
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-94907",
+          "date": "2025-06-19",
+          "total": 414.21,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "343428113904386",
+            "expiry": "09/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-339",
+              "name": "Pull Kit",
+              "qty": 5,
+              "price": 349.46
+            },
+            {
+              "sku": "PROD-459",
+              "name": "Woman Pro",
+              "qty": 6,
+              "price": 245.82
+            },
+            {
+              "sku": "PROD-454",
+              "name": "Alone Set",
+              "qty": 4,
+              "price": 74.27
+            },
+            {
+              "sku": "PROD-099",
+              "name": "Effect Pro",
+              "qty": 10,
+              "price": 123.05
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-59891",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "low",
+          "transcript": "Customer Richard Brown contacted support. Verified with SSN 627-72-8833. Issue resolved with $146 credit."
+        }
+      ],
+      "loyalty_points": 5558,
+      "account_status": "active"
+    },
+    {
+      "id": "CUST-030",
+      "profile": {
+        "first_name": "Susan",
+        "last_name": "Porter",
+        "contact": {
+          "email": "susan.porter@walton-swanson.com",
+          "phone": "(545) 906-1701",
+          "address": {
+            "street": "8171 Edwards Hill",
+            "city": "North Joshua",
+            "state": "MN",
+            "zip": "46817"
+          }
+        },
+        "ssn": "515-25-4468"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-78566",
+          "date": "2025-06-03",
+          "total": 922.16,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3556 8182 0967 9049",
+            "expiry": "11/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-380",
+              "name": "Civil Bundle",
+              "qty": 4,
+              "price": 462.78
+            },
+            {
+              "sku": "PROD-019",
+              "name": "Rest Kit",
+              "qty": 8,
+              "price": 328.65
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-91051",
+          "date": "2025-09-22",
+          "total": 101.15,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "30113322889853",
+            "expiry": "12/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-008",
+              "name": "Stock Kit",
+              "qty": 1,
+              "price": 452.81
+            },
+            {
+              "sku": "PROD-421",
+              "name": "Catch Pro",
+              "qty": 8,
+              "price": 307.56
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-18383",
+          "date": "2025-12-01",
+          "total": 1637.42,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "375960633991296",
+            "expiry": "02/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-305",
+              "name": "Modern Bundle",
+              "qty": 4,
+              "price": 36.24
+            },
+            {
+              "sku": "PROD-104",
+              "name": "Bill Set",
+              "qty": 6,
+              "price": 406.7
+            },
+            {
+              "sku": "PROD-378",
+              "name": "Support Set",
+              "qty": 6,
+              "price": 64.8
+            },
+            {
+              "sku": "PROD-351",
+              "name": "Administration Bundle",
+              "qty": 9,
+              "price": 72.98
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 746,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-031",
+      "profile": {
+        "first_name": "Christopher",
+        "last_name": "White",
+        "contact": {
+          "email": "christopher.white@scott-kennedy.com",
+          "phone": "(377) 443-2035",
+          "address": {
+            "street": "14629 Nash Fork",
+            "city": "Sawyerland",
+            "state": "MI",
+            "zip": "61564"
+          }
+        },
+        "ssn": "223-45-3314"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-58487",
+          "date": "2025-09-20",
+          "total": 1111.28,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "30219705466928",
+            "expiry": "08/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-069",
+              "name": "Hit Pro",
+              "qty": 10,
+              "price": 191.18
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-12048",
+          "date": "2025-12-29",
+          "total": 1760.46,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "180051687409032",
+            "expiry": "02/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-092",
+              "name": "Tend Pro",
+              "qty": 10,
+              "price": 444.02
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-28021",
+          "date": "2026-04-02",
+          "status": "open",
+          "priority": "high",
+          "transcript": "Customer Christopher White contacted support. Issue resolved with $42 credit."
+        }
+      ],
+      "loyalty_points": 4439,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-032",
+      "profile": {
+        "first_name": "Taylor",
+        "last_name": "Nichols",
+        "contact": {
+          "email": "taylor.nichols@rodriguez-white.com",
+          "phone": "(661) 521-4919",
+          "address": {
+            "street": "6778 Tammy Mews",
+            "city": "Ritashire",
+            "state": "MS",
+            "zip": "01802"
+          }
+        },
+        "ssn": "278-88-1616"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-75521",
+          "date": "2025-04-16",
+          "total": 1227.98,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "6536515597371472",
+            "expiry": "02/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-179",
+              "name": "Offer Set",
+              "qty": 1,
+              "price": 281.07
+            },
+            {
+              "sku": "PROD-099",
+              "name": "Clearly Pro",
+              "qty": 9,
+              "price": 488.51
+            },
+            {
+              "sku": "PROD-317",
+              "name": "Many Pack",
+              "qty": 9,
+              "price": 256.23
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-92111",
+          "date": "2025-07-15",
+          "total": 1322.06,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4590-9605-6730-3063",
+            "expiry": "05/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-058",
+              "name": "Entire Kit",
+              "qty": 8,
+              "price": 251.27
+            },
+            {
+              "sku": "PROD-082",
+              "name": "Prove Pro",
+              "qty": 1,
+              "price": 324.21
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-37471",
+          "date": "2026-03-15",
+          "total": 875.0,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4214-6147-6834-2018",
+            "expiry": "06/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-023",
+              "name": "Week Pro",
+              "qty": 1,
+              "price": 462.81
+            },
+            {
+              "sku": "PROD-091",
+              "name": "Later Kit",
+              "qty": 1,
+              "price": 245.11
+            },
+            {
+              "sku": "PROD-060",
+              "name": "Guess Pro",
+              "qty": 4,
+              "price": 362.09
+            },
+            {
+              "sku": "PROD-304",
+              "name": "Some Bundle",
+              "qty": 6,
+              "price": 212.44
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-30855",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "low",
+          "transcript": "Customer Taylor Nichols contacted support. Email on file: taylor.nichols@rodriguez-white.com. Issue resolved with $93 credit."
+        },
+        {
+          "ticket_id": "TKT-10637",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "high",
+          "transcript": "Customer Taylor Nichols contacted support. Issue resolved with $66 credit."
+        }
+      ],
+      "loyalty_points": 7936,
+      "account_status": "active"
+    },
+    {
+      "id": "CUST-033",
+      "profile": {
+        "first_name": "Ann",
+        "last_name": "English",
+        "contact": {
+          "email": "ann.english@miller.org",
+          "phone": "(646) 248-4541",
+          "address": {
+            "street": "0448 Holly Run Suite 665",
+            "city": "Mariachester",
+            "state": "NC",
+            "zip": "44518"
+          }
+        },
+        "ssn": "724-68-3917"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-27878",
+          "date": "2025-09-23",
+          "total": 920.9,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3555-0272-7516-4800",
+            "expiry": "04/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-500",
+              "name": "Yes Pack",
+              "qty": 4,
+              "price": 171.27
+            },
+            {
+              "sku": "PROD-017",
+              "name": "There Bundle",
+              "qty": 1,
+              "price": 143.9
+            },
+            {
+              "sku": "PROD-057",
+              "name": "Tough Set",
+              "qty": 8,
+              "price": 212.02
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-38816",
+          "date": "2025-12-21",
+          "total": 1773.95,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4910-3368-2963-5332",
+            "expiry": "10/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-296",
+              "name": "Part Bundle",
+              "qty": 4,
+              "price": 47.8
+            },
+            {
+              "sku": "PROD-439",
+              "name": "Address Bundle",
+              "qty": 8,
+              "price": 431.79
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 9692,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-034",
+      "profile": {
+        "first_name": "Daniel",
+        "last_name": "Thompson",
+        "contact": {
+          "email": "daniel.thompson@brooks-tran.com",
+          "phone": "(673) 385-1237",
+          "address": {
+            "street": "981 Gordon Valley Apt. 463",
+            "city": "Port Shawn",
+            "state": "MS",
+            "zip": "15508"
+          }
+        },
+        "ssn": "847-64-5041"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-66917",
+          "date": "2025-11-27",
+          "total": 1163.14,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "180064649111109",
+            "expiry": "10/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-214",
+              "name": "Work Pro",
+              "qty": 1,
+              "price": 495.68
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-92311",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "medium",
+          "transcript": "Customer Daniel Thompson contacted support. Email on file: daniel.thompson@brooks-tran.com. Issue resolved with $132 credit."
+        },
+        {
+          "ticket_id": "TKT-96916",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "low",
+          "transcript": "Customer Daniel Thompson contacted support. Verified with SSN 847-64-5041. Email on file: daniel.thompson@brooks-tran.com. Issue resolved with $187 credit."
+        }
+      ],
+      "loyalty_points": 2174,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-035",
+      "profile": {
+        "first_name": "James",
+        "last_name": "Harrison",
+        "contact": {
+          "email": "james.harrison@bell.biz",
+          "phone": "(502) 344-2486",
+          "address": {
+            "street": "2963 Lee Row Suite 096",
+            "city": "Lake Peter",
+            "state": "VA",
+            "zip": "23270"
+          }
+        },
+        "ssn": "116-71-5994"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-70199",
+          "date": "2025-04-12",
+          "total": 1717.27,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4053 8444 4630 6002",
+            "expiry": "12/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-500",
+              "name": "Class Set",
+              "qty": 8,
+              "price": 387.06
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-93261",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "high",
+          "transcript": "Customer James Harrison contacted support. Verified with SSN 116-71-5994. Issue resolved with $128 credit."
+        },
+        {
+          "ticket_id": "TKT-39874",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "medium",
+          "transcript": "Customer James Harrison contacted support. Verified with SSN 116-71-5994. Issue resolved with $18 credit."
+        }
+      ],
+      "loyalty_points": 8887,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-036",
+      "profile": {
+        "first_name": "Richard",
+        "last_name": "Flores",
+        "contact": {
+          "email": "richard.flores@kim.com",
+          "phone": "(412) 906-2326",
+          "address": {
+            "street": "2117 Durham Fords Suite 170",
+            "city": "Jonesland",
+            "state": "IL",
+            "zip": "90591"
+          }
+        },
+        "ssn": "735-52-1898"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-57708",
+          "date": "2025-09-18",
+          "total": 1777.08,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "213196482531109",
+            "expiry": "02/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-239",
+              "name": "Activity Bundle",
+              "qty": 1,
+              "price": 185.96
+            },
+            {
+              "sku": "PROD-090",
+              "name": "Production Bundle",
+              "qty": 2,
+              "price": 282.58
+            },
+            {
+              "sku": "PROD-397",
+              "name": "Speech Kit",
+              "qty": 3,
+              "price": 490.72
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-80730",
+          "date": "2025-07-26",
+          "total": 235.98,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3509819602752332",
+            "expiry": "08/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-386",
+              "name": "Daughter Kit",
+              "qty": 6,
+              "price": 179.59
+            },
+            {
+              "sku": "PROD-137",
+              "name": "North Bundle",
+              "qty": 7,
+              "price": 142.19
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-58865",
+          "date": "2025-05-19",
+          "total": 697.0,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4404120911797",
+            "expiry": "08/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-241",
+              "name": "Both Bundle",
+              "qty": 9,
+              "price": 450.23
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-25687",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "low",
+          "transcript": "Customer Richard Flores contacted support. Issue resolved with $26 credit."
+        }
+      ],
+      "loyalty_points": 1313,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-037",
+      "profile": {
+        "first_name": "Robert",
+        "last_name": "Preston",
+        "contact": {
+          "email": "robert.preston@odonnell.com",
+          "phone": "(383) 395-2260",
+          "address": {
+            "street": "51305 Jeffrey Stream",
+            "city": "West Joshua",
+            "state": "ID",
+            "zip": "12555"
+          }
+        },
+        "ssn": "211-31-5521"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-29392",
+          "date": "2025-04-13",
+          "total": 997.69,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4155 7998 0284 1397",
+            "expiry": "04/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-151",
+              "name": "North Set",
+              "qty": 9,
+              "price": 466.2
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-25780",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "low",
+          "transcript": "Customer Robert Preston contacted support. Verified with SSN 211-31-5521. Issue resolved with $84 credit."
+        }
+      ],
+      "loyalty_points": 3806,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-038",
+      "profile": {
+        "first_name": "Michael",
+        "last_name": "Arnold",
+        "contact": {
+          "email": "michael.arnold@owens-lamb.biz",
+          "phone": "(860) 443-7745",
+          "address": {
+            "street": "08496 Munoz Wells Suite 601",
+            "city": "Port Marcus",
+            "state": "WY",
+            "zip": "24869"
+          }
+        },
+        "ssn": "692-53-6346"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-97274",
+          "date": "2025-06-05",
+          "total": 1396.76,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "180034234619949",
+            "expiry": "09/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-156",
+              "name": "Study Bundle",
+              "qty": 3,
+              "price": 449.65
+            },
+            {
+              "sku": "PROD-157",
+              "name": "Describe Kit",
+              "qty": 5,
+              "price": 117.26
+            },
+            {
+              "sku": "PROD-191",
+              "name": "Seven Pack",
+              "qty": 1,
+              "price": 78.43
+            },
+            {
+              "sku": "PROD-146",
+              "name": "Method Set",
+              "qty": 3,
+              "price": 311.22
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-80165",
+          "date": "2026-03-16",
+          "total": 577.64,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "6569459196639551",
+            "expiry": "03/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-083",
+              "name": "Project Kit",
+              "qty": 2,
+              "price": 25.37
+            },
+            {
+              "sku": "PROD-163",
+              "name": "Ten Bundle",
+              "qty": 3,
+              "price": 223.24
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-46068",
+          "date": "2026-04-02",
+          "status": "open",
+          "priority": "medium",
+          "transcript": "Customer Michael Arnold contacted support. Verified with SSN 692-53-6346. Callback number: (860) 443-7745. Issue resolved with $91 credit."
+        }
+      ],
+      "loyalty_points": 7347,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-039",
+      "profile": {
+        "first_name": "Michael",
+        "last_name": "Jones",
+        "contact": {
+          "email": "michael.jones@watson.com",
+          "phone": "(366) 646-5940",
+          "address": {
+            "street": "90409 Rhonda Haven Apt. 608",
+            "city": "West Deannaland",
+            "state": "NJ",
+            "zip": "12968"
+          }
+        },
+        "ssn": "224-13-7628"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-70036",
+          "date": "2025-10-23",
+          "total": 1856.34,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "345379538164932",
+            "expiry": "03/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-332",
+              "name": "Director Pack",
+              "qty": 8,
+              "price": 448.51
+            },
+            {
+              "sku": "PROD-497",
+              "name": "Board Bundle",
+              "qty": 3,
+              "price": 400.79
+            },
+            {
+              "sku": "PROD-374",
+              "name": "Option Set",
+              "qty": 6,
+              "price": 346.13
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-72781",
+          "date": "2025-11-21",
+          "total": 1801.35,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4966553307704611720",
+            "expiry": "03/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-158",
+              "name": "General Pro",
+              "qty": 7,
+              "price": 310.67
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 7306,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-040",
+      "profile": {
+        "first_name": "Maria",
+        "last_name": "Perry",
+        "contact": {
+          "email": "maria.perry@hill-molina.biz",
+          "phone": "(294) 434-1901",
+          "address": {
+            "street": "52967 Aimee Garden",
+            "city": "Stanleyview",
+            "state": "MD",
+            "zip": "96296"
+          }
+        },
+        "ssn": "722-92-4197"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-39116",
+          "date": "2025-04-13",
+          "total": 1564.75,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "2705 7906 4771 5911",
+            "expiry": "05/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-043",
+              "name": "Door Bundle",
+              "qty": 8,
+              "price": 340.15
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-77081",
+          "date": "2025-06-15",
+          "total": 794.9,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "501821563217",
+            "expiry": "08/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-466",
+              "name": "Shake Pack",
+              "qty": 7,
+              "price": 78.23
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-58448",
+          "date": "2025-12-29",
+          "total": 778.36,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "340401041459644",
+            "expiry": "01/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-180",
+              "name": "Conference Pack",
+              "qty": 8,
+              "price": 437.78
+            },
+            {
+              "sku": "PROD-045",
+              "name": "Wish Kit",
+              "qty": 8,
+              "price": 372.06
+            },
+            {
+              "sku": "PROD-213",
+              "name": "Certainly Set",
+              "qty": 5,
+              "price": 86.08
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-77962",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "low",
+          "transcript": "Customer Maria Perry contacted support. Issue resolved with $45 credit."
+        },
+        {
+          "ticket_id": "TKT-9665",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "low",
+          "transcript": "Customer Maria Perry contacted support. Verified with SSN 722-92-4197. Issue resolved with $95 credit."
+        }
+      ],
+      "loyalty_points": 108,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-041",
+      "profile": {
+        "first_name": "Timothy",
+        "last_name": "Davis",
+        "contact": {
+          "email": "timothy.davis@dawson-gomez.com",
+          "phone": "(854) 379-7791",
+          "address": {
+            "street": "4181 Reynolds Drive Suite 868",
+            "city": "Brianview",
+            "state": "MN",
+            "zip": "13321"
+          }
+        },
+        "ssn": "279-81-8571"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-27947",
+          "date": "2026-02-12",
+          "total": 406.52,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4117 0303 7637 1539",
+            "expiry": "07/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-022",
+              "name": "Performance Pack",
+              "qty": 10,
+              "price": 155.44
+            },
+            {
+              "sku": "PROD-287",
+              "name": "Sort Set",
+              "qty": 4,
+              "price": 18.29
+            },
+            {
+              "sku": "PROD-002",
+              "name": "News Kit",
+              "qty": 5,
+              "price": 153.58
+            },
+            {
+              "sku": "PROD-328",
+              "name": "My Set",
+              "qty": 2,
+              "price": 328.64
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-64677",
+          "date": "2026-01-29",
+          "total": 366.95,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "377281235679835",
+            "expiry": "12/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-015",
+              "name": "Instead Pro",
+              "qty": 5,
+              "price": 249.06
+            },
+            {
+              "sku": "PROD-497",
+              "name": "Cup Pro",
+              "qty": 10,
+              "price": 374.05
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-72978",
+          "date": "2025-06-13",
+          "total": 1135.49,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "2256 2491 2711 3074",
+            "expiry": "05/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-499",
+              "name": "Example Pro",
+              "qty": 6,
+              "price": 258.7
+            },
+            {
+              "sku": "PROD-295",
+              "name": "Air Pro",
+              "qty": 5,
+              "price": 85.61
+            },
+            {
+              "sku": "PROD-030",
+              "name": "Maybe Kit",
+              "qty": 6,
+              "price": 233.22
+            },
+            {
+              "sku": "PROD-355",
+              "name": "Recently Kit",
+              "qty": 6,
+              "price": 85.84
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-38992",
+          "date": "2026-04-02",
+          "status": "pending",
+          "priority": "high",
+          "transcript": "Customer Timothy Davis contacted support. Verified with SSN 279-81-8571. Issue resolved with $22 credit."
+        }
+      ],
+      "loyalty_points": 1258,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-042",
+      "profile": {
+        "first_name": "Brandon",
+        "last_name": "Reyes",
+        "contact": {
+          "email": "brandon.reyes@lee-lopez.com",
+          "phone": "(398) 884-4002",
+          "address": {
+            "street": "7207 Cook Fall",
+            "city": "Nicoleburgh",
+            "state": "TX",
+            "zip": "01776"
+          }
+        },
+        "ssn": "883-22-3738"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-51446",
+          "date": "2025-11-11",
+          "total": 1655.38,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3589-7861-0313-1006",
+            "expiry": "11/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-351",
+              "name": "Exactly Pack",
+              "qty": 2,
+              "price": 269.54
+            },
+            {
+              "sku": "PROD-181",
+              "name": "Edge Kit",
+              "qty": 1,
+              "price": 72.79
+            },
+            {
+              "sku": "PROD-145",
+              "name": "Attorney Pack",
+              "qty": 8,
+              "price": 208.94
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-23424",
+          "date": "2025-06-20",
+          "total": 443.57,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "213143966613474",
+            "expiry": "09/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-408",
+              "name": "Congress Bundle",
+              "qty": 10,
+              "price": 346.38
+            },
+            {
+              "sku": "PROD-488",
+              "name": "Stock Bundle",
+              "qty": 9,
+              "price": 357.71
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-24937",
+          "date": "2025-06-07",
+          "total": 840.52,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4494012897436",
+            "expiry": "02/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-473",
+              "name": "Forward Pro",
+              "qty": 8,
+              "price": 177.36
+            },
+            {
+              "sku": "PROD-354",
+              "name": "Responsibility Pack",
+              "qty": 3,
+              "price": 409.43
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-4769",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "low",
+          "transcript": "Customer Brandon Reyes contacted support. Callback number: (398) 884-4002. Issue resolved with $87 credit."
+        },
+        {
+          "ticket_id": "TKT-17429",
+          "date": "2026-04-02",
+          "status": "open",
+          "priority": "low",
+          "transcript": "Customer Brandon Reyes contacted support. Verified with SSN 883-22-3738. Issue resolved with $88 credit."
+        }
+      ],
+      "loyalty_points": 1287,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-043",
+      "profile": {
+        "first_name": "Brooke",
+        "last_name": "Montes",
+        "contact": {
+          "email": "brooke.montes@smith.com",
+          "phone": "(907) 881-2830",
+          "address": {
+            "street": "48026 Donna Divide Suite 703",
+            "city": "Howardland",
+            "state": "ID",
+            "zip": "50017"
+          }
+        },
+        "ssn": "179-12-8934"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-35736",
+          "date": "2025-05-10",
+          "total": 224.56,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "676243882211",
+            "expiry": "11/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-241",
+              "name": "Fly Pro",
+              "qty": 5,
+              "price": 26.42
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-97501",
+          "date": "2026-03-14",
+          "total": 30.44,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3577-5847-4570-5459",
+            "expiry": "02/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-301",
+              "name": "National Kit",
+              "qty": 3,
+              "price": 336.95
+            },
+            {
+              "sku": "PROD-015",
+              "name": "Stage Pro",
+              "qty": 3,
+              "price": 423.7
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-96493",
+          "date": "2026-04-02",
+          "status": "open",
+          "priority": "high",
+          "transcript": "Customer Brooke Montes contacted support. Email on file: brooke.montes@smith.com. Callback number: (907) 881-2830. Issue resolved with $138 credit."
+        }
+      ],
+      "loyalty_points": 9342,
+      "account_status": "active"
+    },
+    {
+      "id": "CUST-044",
+      "profile": {
+        "first_name": "Danielle",
+        "last_name": "Sheppard",
+        "contact": {
+          "email": "danielle.sheppard@shelton.net",
+          "phone": "(301) 939-1229",
+          "address": {
+            "street": "70349 Brian Inlet Apt. 650",
+            "city": "West Devinport",
+            "state": "WY",
+            "zip": "66298"
+          }
+        },
+        "ssn": "641-37-4138"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-80402",
+          "date": "2025-09-17",
+          "total": 18.61,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4556964430985918",
+            "expiry": "12/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-472",
+              "name": "Stuff Bundle",
+              "qty": 8,
+              "price": 186.4
+            },
+            {
+              "sku": "PROD-302",
+              "name": "Look Kit",
+              "qty": 8,
+              "price": 338.4
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-33704",
+          "date": "2025-10-08",
+          "total": 1671.14,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3541072728498246",
+            "expiry": "07/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-264",
+              "name": "Fight Kit",
+              "qty": 7,
+              "price": 60.86
+            },
+            {
+              "sku": "PROD-161",
+              "name": "Attention Pro",
+              "qty": 8,
+              "price": 59.61
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 8123,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-045",
+      "profile": {
+        "first_name": "Elizabeth",
+        "last_name": "Mack",
+        "contact": {
+          "email": "elizabeth.mack@mckay.com",
+          "phone": "(921) 395-1665",
+          "address": {
+            "street": "234 Robert Flats Suite 414",
+            "city": "Gardnerfurt",
+            "state": "WY",
+            "zip": "57765"
+          }
+        },
+        "ssn": "184-51-9088"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-47173",
+          "date": "2026-03-25",
+          "total": 919.32,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4691-4307-5366-6143",
+            "expiry": "12/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-116",
+              "name": "Five Bundle",
+              "qty": 7,
+              "price": 148.84
+            },
+            {
+              "sku": "PROD-438",
+              "name": "Picture Set",
+              "qty": 4,
+              "price": 429.1
+            },
+            {
+              "sku": "PROD-459",
+              "name": "Foreign Set",
+              "qty": 6,
+              "price": 93.75
+            },
+            {
+              "sku": "PROD-346",
+              "name": "Consumer Set",
+              "qty": 2,
+              "price": 201.2
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-92099",
+          "date": "2026-04-02",
+          "status": "resolved",
+          "priority": "high",
+          "transcript": "Customer Elizabeth Mack contacted support. Email on file: elizabeth.mack@mckay.com. Callback number: (921) 395-1665. Issue resolved with $112 credit."
+        },
+        {
+          "ticket_id": "TKT-45385",
+          "date": "2026-04-02",
+          "status": "open",
+          "priority": "high",
+          "transcript": "Customer Elizabeth Mack contacted support. Callback number: (921) 395-1665. Issue resolved with $60 credit."
+        }
+      ],
+      "loyalty_points": 6623,
+      "account_status": "active"
+    },
+    {
+      "id": "CUST-046",
+      "profile": {
+        "first_name": "Cody",
+        "last_name": "Rose",
+        "contact": {
+          "email": "cody.rose@edwards.info",
+          "phone": "(438) 958-7958",
+          "address": {
+            "street": "723 Kevin Inlet",
+            "city": "Port Toddborough",
+            "state": "DE",
+            "zip": "09301"
+          }
+        },
+        "ssn": "842-73-5563"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-87810",
+          "date": "2026-02-01",
+          "total": 553.22,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "377667080612949",
+            "expiry": "11/28"
+          },
+          "items": [
+            {
+              "sku": "PROD-244",
+              "name": "Eight Bundle",
+              "qty": 7,
+              "price": 493.82
+            },
+            {
+              "sku": "PROD-262",
+              "name": "Partner Pack",
+              "qty": 3,
+              "price": 385.16
+            },
+            {
+              "sku": "PROD-056",
+              "name": "Music Pro",
+              "qty": 5,
+              "price": 247.22
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-92361",
+          "date": "2026-02-21",
+          "total": 1885.38,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "349894062607870",
+            "expiry": "01/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-426",
+              "name": "Arm Pro",
+              "qty": 8,
+              "price": 340.66
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-60152",
+          "date": "2026-01-14",
+          "total": 1213.12,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "5241591497501987",
+            "expiry": "06/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-319",
+              "name": "Series Bundle",
+              "qty": 2,
+              "price": 381.28
+            },
+            {
+              "sku": "PROD-339",
+              "name": "Argue Bundle",
+              "qty": 8,
+              "price": 397.4
+            },
+            {
+              "sku": "PROD-104",
+              "name": "Science Pack",
+              "qty": 8,
+              "price": 247.67
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-5141",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "low",
+          "transcript": "Customer Cody Rose contacted support. Issue resolved with $14 credit."
+        }
+      ],
+      "loyalty_points": 6285,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-047",
+      "profile": {
+        "first_name": "Aaron",
+        "last_name": "Munoz",
+        "contact": {
+          "email": "aaron.munoz@meyer.com",
+          "phone": "(522) 973-7165",
+          "address": {
+            "street": "2022 George Streets",
+            "city": "South Timothy",
+            "state": "LA",
+            "zip": "87996"
+          }
+        },
+        "ssn": "553-68-1589"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-82963",
+          "date": "2026-02-15",
+          "total": 1322.23,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "2508760146723848",
+            "expiry": "05/30"
+          },
+          "items": [
+            {
+              "sku": "PROD-252",
+              "name": "Position Set",
+              "qty": 3,
+              "price": 159.67
+            },
+            {
+              "sku": "PROD-200",
+              "name": "Responsibility Set",
+              "qty": 2,
+              "price": 286.58
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-74695",
+          "date": "2026-04-02",
+          "status": "open",
+          "priority": "high",
+          "transcript": "Customer Aaron Munoz contacted support. Issue resolved with $131 credit."
+        }
+      ],
+      "loyalty_points": 913,
+      "account_status": "inactive"
+    },
+    {
+      "id": "CUST-048",
+      "profile": {
+        "first_name": "Craig",
+        "last_name": "Chapman",
+        "contact": {
+          "email": "craig.chapman@contreras-myers.com",
+          "phone": "(469) 606-7189",
+          "address": {
+            "street": "25957 Joshua Track",
+            "city": "Sandraland",
+            "state": "PW",
+            "zip": "85060"
+          }
+        },
+        "ssn": "731-96-6779"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-18050",
+          "date": "2025-04-15",
+          "total": 66.01,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "36620471960941",
+            "expiry": "01/26"
+          },
+          "items": [
+            {
+              "sku": "PROD-179",
+              "name": "Quite Bundle",
+              "qty": 1,
+              "price": 383.77
+            },
+            {
+              "sku": "PROD-321",
+              "name": "Rather Pack",
+              "qty": 7,
+              "price": 53.19
+            },
+            {
+              "sku": "PROD-177",
+              "name": "Walk Pack",
+              "qty": 7,
+              "price": 178.88
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-42011",
+          "date": "2025-08-31",
+          "total": 502.75,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4052 7740 2588 3587",
+            "expiry": "11/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-467",
+              "name": "Must Pro",
+              "qty": 5,
+              "price": 61.66
+            }
+          ]
+        }
+      ],
+      "support_tickets": [],
+      "loyalty_points": 322,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-049",
+      "profile": {
+        "first_name": "Timothy",
+        "last_name": "Estes",
+        "contact": {
+          "email": "timothy.estes@hopkins.net",
+          "phone": "(533) 138-8551",
+          "address": {
+            "street": "76298 James Overpass Suite 433",
+            "city": "South Lisa",
+            "state": "AS",
+            "zip": "25705"
+          }
+        },
+        "ssn": "773-64-9433"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-12674",
+          "date": "2026-01-22",
+          "total": 1394.96,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "4599599610023117757",
+            "expiry": "10/25"
+          },
+          "items": [
+            {
+              "sku": "PROD-194",
+              "name": "Each Bundle",
+              "qty": 7,
+              "price": 164.6
+            },
+            {
+              "sku": "PROD-051",
+              "name": "Sport Set",
+              "qty": 2,
+              "price": 346.98
+            },
+            {
+              "sku": "PROD-106",
+              "name": "System Pack",
+              "qty": 8,
+              "price": 253.87
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-54504",
+          "date": "2025-11-23",
+          "total": 341.59,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "3512 6610 9410 1759",
+            "expiry": "05/27"
+          },
+          "items": [
+            {
+              "sku": "PROD-104",
+              "name": "Program Set",
+              "qty": 2,
+              "price": 420.99
+            },
+            {
+              "sku": "PROD-275",
+              "name": "Though Kit",
+              "qty": 5,
+              "price": 136.25
+            },
+            {
+              "sku": "PROD-153",
+              "name": "All Bundle",
+              "qty": 7,
+              "price": 403.28
+            },
+            {
+              "sku": "PROD-320",
+              "name": "Wind Pro",
+              "qty": 10,
+              "price": 51.89
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-28490",
+          "date": "2026-04-02",
+          "status": "pending",
+          "priority": "low",
+          "transcript": "Customer Timothy Estes contacted support. Verified with SSN 773-64-9433. Issue resolved with $119 credit."
+        }
+      ],
+      "loyalty_points": 4945,
+      "account_status": "suspended"
+    },
+    {
+      "id": "CUST-050",
+      "profile": {
+        "first_name": "Christopher",
+        "last_name": "Johnson",
+        "contact": {
+          "email": "christopher.johnson@davis.com",
+          "phone": "(507) 543-9846",
+          "address": {
+            "street": "34465 Monique Estate Suite 189",
+            "city": "Port April",
+            "state": "RI",
+            "zip": "66043"
+          }
+        },
+        "ssn": "420-35-7788"
+      },
+      "orders": [
+        {
+          "order_id": "ORD-91915",
+          "date": "2025-08-16",
+          "total": 1035.58,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "379815287339786",
+            "expiry": "11/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-452",
+              "name": "Heavy Pro",
+              "qty": 9,
+              "price": 432.04
+            },
+            {
+              "sku": "PROD-296",
+              "name": "Present Set",
+              "qty": 4,
+              "price": 332.1
+            }
+          ]
+        },
+        {
+          "order_id": "ORD-71249",
+          "date": "2025-05-11",
+          "total": 543.19,
+          "payment": {
+            "method": "credit_card",
+            "card_number": "213117661912845",
+            "expiry": "11/29"
+          },
+          "items": [
+            {
+              "sku": "PROD-479",
+              "name": "Buy Bundle",
+              "qty": 1,
+              "price": 263.52
+            },
+            {
+              "sku": "PROD-187",
+              "name": "Moment Set",
+              "qty": 3,
+              "price": 123.99
+            },
+            {
+              "sku": "PROD-383",
+              "name": "During Pack",
+              "qty": 7,
+              "price": 208.08
+            },
+            {
+              "sku": "PROD-441",
+              "name": "Approach Pro",
+              "qty": 4,
+              "price": 423.75
+            }
+          ]
+        }
+      ],
+      "support_tickets": [
+        {
+          "ticket_id": "TKT-31950",
+          "date": "2026-04-02",
+          "status": "escalated",
+          "priority": "low",
+          "transcript": "Customer Christopher Johnson contacted support. Callback number: (507) 543-9846. Issue resolved with $163 credit."
+        }
+      ],
+      "loyalty_points": 1860,
+      "account_status": "active"
+    }
+  ],
+  "metadata": {
+    "total_customers": 50,
+    "generated_by": "seed_data_generator_v1",
+    "contains_pii": true,
+    "pii_types": [
+      "credit_card",
+      "ssn",
+      "email",
+      "phone"
+    ]
+  }
+}
