@@ -39,6 +39,7 @@ class WorkspaceManager:
         """
         self.seed_data_dir: str = seed_data_dir
         self.workspace_dir: str = ""
+        self.abs_seed_data_dir: str = ""
 
     def provision(self) -> str:
         """
@@ -57,6 +58,7 @@ class WorkspaceManager:
         # Resolve the seed data directory relative to this file's location
         base_dir = Path(__file__).resolve().parent.parent
         seed_path = base_dir / self.seed_data_dir
+        self.abs_seed_data_dir = str(seed_path)
 
         # Create a unique temp workspace
         workspace = tempfile.mkdtemp(prefix="pii_workspace_")

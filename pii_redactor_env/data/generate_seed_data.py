@@ -19,6 +19,7 @@ import json
 import os
 import random
 from pathlib import Path
+from typing import Optional
 
 try:
     from faker import Faker
@@ -26,21 +27,23 @@ except ImportError:
     print("Faker is required: pip install faker")
     raise
 
-# Reproducibility
-SEED = 42
-fake = Faker()
-Faker.seed(SEED)
-random.seed(SEED)
-
 # Output directory (relative to this script)
 BASE_DIR = Path(__file__).resolve().parent
 
+def _init_faker(seed: Optional[int] = None) -> Faker:
+    """Initialize a Faker instance with an optional seed."""
+    fake = Faker()
+    if seed is not None:
+        Faker.seed(seed)
+        random.seed(seed)
+        fake.seed_instance(seed)
+    return fake
 
 # ═══════════════════════════════════════════════════════════════
 # EASY: customers.csv — 500 rows, ~30% with CC in notes
 # ═══════════════════════════════════════════════════════════════
 
-def _generate_cc() -> str:
+def _generate_cc(fake: Faker) -> str:
     """Generate a fake credit card number in a random format."""
     digits = fake.credit_card_number(card_type=None)
     fmt = random.choice(["raw", "dashed", "spaced"])
@@ -84,8 +87,9 @@ CLEAN_NOTES = [
 ]
 
 
-def generate_easy_csv(num_rows: int = 500) -> None:
+def generate_easy_csv(num_rows: int = 500, seed: Optional[int] = None) -> None:
     """Generate customers.csv with CC numbers injected in ~30% of notes."""
+    fake = _init_faker(seed)
     output_path = BASE_DIR / "easy" / "customers.csv"
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -101,7 +105,7 @@ def generate_easy_csv(num_rows: int = 500) -> None:
 
             # ~30% chance of CC in notes
             if random.random() < 0.30:
-                cc = _generate_cc()
+                cc = _generate_cc(fake)
                 template = random.choice(CC_NOTE_TEMPLATES)
                 notes = template.format(cc=cc)
             else:
@@ -117,7 +121,7 @@ def generate_easy_csv(num_rows: int = 500) -> None:
                 "notes": notes,
             })
 
-    print(f"  ✓ Generated {output_path} ({num_rows} rows)")
+    print(f"  ✓ Generated {output_path} ({num_rows} rows) [seed={seed}]")
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -167,8 +171,9 @@ def _generate_ssn() -> str:
     return f"{random.randint(100, 899):03d}-{random.randint(10, 99):02d}-{random.randint(1000, 9999):04d}"
 
 
-def generate_medium_chat(num_messages: int = 200) -> None:
+def generate_medium_chat(num_messages: int = 200, seed: Optional[int] = None) -> None:
     """Generate chat_logs.txt with SSNs injected in ~15% of messages."""
+    fake = _init_faker(seed)
     output_path = BASE_DIR / "medium" / "chat_logs.txt"
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -215,14 +220,14 @@ def generate_medium_chat(num_messages: int = 200) -> None:
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
-    print(f"  ✓ Generated {output_path} ({num_messages} messages)")
+    print(f"  ✓ Generated {output_path} ({num_messages} messages) [seed={seed}]")
 
 
 # ═══════════════════════════════════════════════════════════════
 # HARD: records.json — 50 nested customer records with mixed PII
 # ═══════════════════════════════════════════════════════════════
 
-def _generate_customer_record(cust_id: int) -> dict:
+def _generate_customer_record(cust_id: int, fake: Faker) -> dict:
     """Generate a single deeply nested customer record with mixed PII."""
     first = fake.first_name()
     last = fake.last_name()
@@ -233,7 +238,7 @@ def _generate_customer_record(cust_id: int) -> dict:
     # Generate 1-3 orders
     orders = []
     for j in range(random.randint(1, 3)):
-        cc = _generate_cc()
+        cc = _generate_cc(fake)
         order = {
             "order_id": f"ORD-{random.randint(10000, 99999)}",
             "date": fake.date_between(start_date="-1y", end_date="today").isoformat(),
@@ -302,8 +307,9 @@ def _generate_customer_record(cust_id: int) -> dict:
     }
 
 
-def generate_hard_json(num_customers: int = 50) -> None:
+def generate_hard_json(num_customers: int = 50, seed: Optional[int] = None) -> None:
     """Generate records.json with deeply nested mixed PII."""
+    fake = _init_faker(seed)
     output_path = BASE_DIR / "hard" / "records.json"
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -312,7 +318,7 @@ def generate_hard_json(num_customers: int = 50) -> None:
         "export_date": "2024-03-15",
         "version": "2.1.0",
         "customers": [
-            _generate_customer_record(i) for i in range(1, num_customers + 1)
+            _generate_customer_record(i, fake) for i in range(1, num_customers + 1)
         ],
         "metadata": {
             "total_customers": num_customers,
@@ -325,19 +331,19 @@ def generate_hard_json(num_customers: int = 50) -> None:
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-    print(f"  ✓ Generated {output_path} ({num_customers} customers)")
+    print(f"  ✓ Generated {output_path} ({num_customers} customers) [seed={seed}]")
 
 
 # ═══════════════════════════════════════════════════════════════
 # Main
 # ═══════════════════════════════════════════════════════════════
 
-def generate_all() -> None:
+def generate_all(seed: Optional[int] = 42) -> None:
     """Generate all three seed datasets."""
-    print("Generating seed data...")
-    generate_easy_csv(num_rows=500)
-    generate_medium_chat(num_messages=200)
-    generate_hard_json(num_customers=50)
+    print(f"Generating seed data with seed={seed}...")
+    generate_easy_csv(num_rows=500, seed=seed)
+    generate_medium_chat(num_messages=200, seed=seed)
+    generate_hard_json(num_customers=50, seed=seed)
     print("\nDone! All seed data generated.")
 
 

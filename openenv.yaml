@@ -1,4 +1,4 @@
-spec_version: 1
+spec_version: 0.2.0
 name: pii_redactor_env
 version: "0.1.0"
 description: >
@@ -9,11 +9,11 @@ description: >
 
 type: space
 runtime: fastapi
-app: server.app:app
+app: pii_redactor_env.server.app:app
 port: 7860
 
-action: PIIAction
-observation: PIIObservation
+action: pii_redactor_env.models:PIIAction
+observation: pii_redactor_env.models:PIIObservation
 
 tasks:
   - id: easy
@@ -23,7 +23,7 @@ tasks:
       numbers found in any column. Preserve row count and all non-PII data.
     difficulty: easy
     max_steps: 15
-    seed_data: data/easy/
+    seed_data_dir: pii_redactor_env/data/easy/
 
   - id: medium
     name: "Redact SSNs from Chat Logs"
@@ -33,7 +33,7 @@ tasks:
       non-sensitive numeric data.
     difficulty: medium
     max_steps: 20
-    seed_data: data/medium/
+    seed_data_dir: pii_redactor_env/data/medium/
 
   - id: hard
     name: "Redact Mixed PII from Nested JSON"
@@ -43,7 +43,7 @@ tasks:
       Preserve JSON structure and all non-PII values.
     difficulty: hard
     max_steps: 30
-    seed_data: data/hard/
+    seed_data_dir: pii_redactor_env/data/hard/
 
 metadata:
   author: "PII Redactor Team"

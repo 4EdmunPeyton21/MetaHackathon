@@ -24,6 +24,6 @@ STEP_TIMEOUT_SECONDS: int = 60
 BENCHMARK_NAME: str = "pii_redactor_env"
 
 # ---------------------------------------------------------------------------
-# Environment connection
+# Environment connection (WebSocket — stateful sessions)
 # ---------------------------------------------------------------------------
-ENV_BASE_URL: str = os.getenv("ENV_BASE_URL", "http://localhost:7860")
+ENV_WS_URL: str = os.getenv("ENV_WS_URL", "ws://localhost:7860/ws")

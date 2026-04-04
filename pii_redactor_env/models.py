@@ -88,6 +88,7 @@ class PIIState(State):
         workspace_path: Absolute path to the ephemeral workspace directory.
     """
 
+    episode_id: str = ""
     task_id: str = "easy"
     task_name: str = ""
     current_step: int = 0

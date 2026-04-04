@@ -3,7 +3,8 @@ pii_redactor_env/inference/inference.py
 ----------------------------------------
 Baseline inference agent for the PII Redactor environment.
 
-Runs an agentic loop: observe → think (LLM) → act → grade.
+Uses the **PIIRedactorEnv** client to communicate with the server.
+The client handles the WebSocket lifecycle and type conversions.
 
 CRITICAL: This script emits the EXACT log lines required by the
 Meta × Hugging Face OpenEnv competition spec:
@@ -19,24 +20,24 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import asyncio
 import json
 import os
 import sys
-import time
 from typing import Any, Optional
-
-import requests
 
 try:
     from openai import OpenAI
 except ImportError:
     OpenAI = None  # type: ignore
 
+from pii_redactor_env.client import PIIRedactorEnv
+from pii_redactor_env.models import PIIAction
 from pii_redactor_env.inference.config import (
     API_BASE_URL,
     API_KEY_ENV_VAR,
     BENCHMARK_NAME,
-    ENV_BASE_URL,
+    ENV_WS_URL,
     MAX_STEPS,
     MODEL_NAME,
     STEP_TIMEOUT_SECONDS,
@@ -70,14 +71,6 @@ def call_llm(
 ) -> str:
     """
     Send a prompt to the LLM and return the raw response text.
-
-    Args:
-        system_prompt: The system message defining the agent's role.
-        user_prompt: The user message with current observation context.
-        model: The model identifier (e.g., ``gpt-4o``).
-
-    Returns:
-        Raw response text from the LLM (expected to be a JSON action).
     """
     client = _get_openai_client()
 
@@ -93,7 +86,6 @@ def call_llm(
         )
         return response.choices[0].message.content or ""
     except Exception as e:
-        # Return a safe fallback action on API error
         return json.dumps({
             "action_type": "bash",
             "command": f"echo 'LLM API error: {str(e)[:100]}'"
@@ -101,70 +93,12 @@ def call_llm(
 
 
 # ---------------------------------------------------------------------------
-# Environment HTTP interaction
-# ---------------------------------------------------------------------------
-
-def env_reset(task_id: str) -> dict:
-    """
-    Call the environment's reset endpoint via HTTP.
-
-    Args:
-        task_id: One of ``"easy"``, ``"medium"``, ``"hard"``.
-
-    Returns:
-        Initial observation dict from the environment.
-    """
-    url = f"{ENV_BASE_URL}/reset"
-    try:
-        resp = requests.post(url, json={"task_id": task_id}, timeout=30)
-        resp.raise_for_status()
-        return resp.json()
-    except Exception as e:
-        return {
-            "stdout": "",
-            "stderr": f"Failed to reset environment: {str(e)}",
-            "exit_code": 1,
-            "file_tree": [],
-            "done": False,
-            "reward": None,
-            "error": str(e),
-        }
-
-
-def env_step(action: dict) -> dict:
-    """
-    Call the environment's step endpoint via HTTP.
-
-    Args:
-        action: Dict with ``action_type`` and ``command``.
-
-    Returns:
-        Observation dict from the environment.
-    """
-    url = f"{ENV_BASE_URL}/step"
-    try:
-        resp = requests.post(url, json=action, timeout=STEP_TIMEOUT_SECONDS + 10)
-        resp.raise_for_status()
-        return resp.json()
-    except Exception as e:
-        return {
-            "stdout": "",
-            "stderr": f"Failed to step environment: {str(e)}",
-            "exit_code": 1,
-            "file_tree": [],
-            "done": False,
-            "reward": None,
-            "error": str(e),
-        }
-
-
-# ---------------------------------------------------------------------------
 # Action parsing
 # ---------------------------------------------------------------------------
 
-def _parse_action(llm_response: str) -> dict:
+def _parse_action(llm_response: str) -> PIIAction:
     """
-    Parse the LLM response into an action dict.
+    Parse the LLM response into a PIIAction.
     Handles JSON wrapped in markdown code fences.
     """
     text = llm_response.strip()
@@ -172,28 +106,22 @@ def _parse_action(llm_response: str) -> dict:
     # Strip markdown code fences if present
     if text.startswith("```"):
         lines = text.split("\n")
-        # Remove first and last line (fences)
         lines = [l for l in lines if not l.strip().startswith("```")]
         text = "\n".join(lines).strip()
 
     try:
-        action = json.loads(text)
-        # Validate required keys
-        if "action_type" not in action:
-            action["action_type"] = "bash"
-        if "command" not in action:
-            action["command"] = "echo 'No command provided'"
-        return action
-    except json.JSONDecodeError:
-        # Fallback: treat entire response as a bash command
-        return {"action_type": "bash", "command": text[:500]}
+        action_dict = json.loads(text)
+        return PIIAction(**action_dict)
+    except Exception:
+        # Fallback to bash if parsing fails
+        return PIIAction(action_type="bash", command=text[:500])
 
 
 # ---------------------------------------------------------------------------
-# Main agent loop
+# Main agent loop (async)
 # ---------------------------------------------------------------------------
 
-def run_agent(task_id: str = "easy") -> None:
+async def run_agent_async(task_id: str = "easy") -> None:
     """
     Run the baseline inference agent for a single task episode.
 
@@ -206,59 +134,65 @@ def run_agent(task_id: str = "easy") -> None:
     print(f"[START] task={task_name} env={BENCHMARK_NAME} model={MODEL_NAME}")
     sys.stdout.flush()
 
-    # ── Reset environment ────────────────────────────────────
-    obs = env_reset(task_id)
-    done = obs.get("done", False)
-    step = 0
+    # ── Connect via Client ──────────────────────────────────
+    # Map WebSocket URL to Base HTTP URL for the client if needed, 
+    # but PIIRedactorEnv handles ws:// internally if passed as base_url?
+    # Actually OpenEnv EnvClient expects the HTTP base URL and derives /ws.
+    base_url = ENV_WS_URL.replace("ws://", "http://").replace("/ws", "")
+    
+    async with PIIRedactorEnv(base_url=base_url) as client:
 
-    # ── Agent loop ───────────────────────────────────────────
-    while not done and step < MAX_STEPS:
-        step += 1
+        # ── Reset environment ────────────────────────────────
+        result = await client.reset(task_id=task_id)
+        obs = result.observation
+        done = result.done
+        step = 0
 
-        # Format prompt with current observation
-        file_tree_str = "\n".join(obs.get("file_tree", [])) or "(empty)"
-        reward_display = obs.get("reward")
-        if reward_display is None:
-            reward_display = "N/A"
-        else:
-            reward_display = f"{reward_display:.2f}"
+        # ── Agent loop ───────────────────────────────────────
+        while not done and step < MAX_STEPS:
+            step += 1
 
-        user_prompt = USER_PROMPT_TEMPLATE.format(
-            task_name=task_name,
-            step=step,
-            max_steps=MAX_STEPS,
-            file_tree=file_tree_str,
-            stdout=obs.get("stdout", "")[:2000],
-            stderr=obs.get("stderr", "")[:1000],
-            exit_code=obs.get("exit_code", 0),
-            reward=reward_display,
-        )
+            # Format prompt with current observation
+            file_tree_str = "\n".join(obs.file_tree) or "(empty)"
+            reward_display = result.reward if result.reward is not None else 0.0
 
-        # Get LLM action
-        llm_response = call_llm(SYSTEM_PROMPT, user_prompt)
+            user_prompt = USER_PROMPT_TEMPLATE.format(
+                task_name=task_name,
+                step=step,
+                max_steps=MAX_STEPS,
+                file_tree=file_tree_str,
+                stdout=obs.stdout[:2000],
+                stderr=obs.stderr[:1000],
+                exit_code=obs.exit_code,
+                reward=f"{reward_display:.2f}",
+            )
 
-        # Parse action
-        action = _parse_action(llm_response)
-        action_str = action.get("command", "")[:80]  # truncate for logging
+            # Get LLM action
+            llm_response = call_llm(SYSTEM_PROMPT, user_prompt)
 
-        # Execute action in environment
-        obs = env_step(action)
+            # Parse action
+            action = _parse_action(llm_response)
+            # Remove newlines from action command for single-line log emission
+            action_command_clean = action.command.replace("\n", " ")[:100]
 
-        reward = obs.get("reward", 0.0) or 0.0
-        done = obs.get("done", False)
-        error = obs.get("error", None)
-        rewards.append(float(reward))
+            # Execute action in environment
+            result = await client.step(action)
+            obs = result.observation
+            reward = result.reward or 0.0
+            done = result.done
+            error = obs.error
+            rewards.append(float(reward))
 
-        # ── [STEP] ──────────────────────────────────────────
-        error_str = error if error else "null"
-        print(
-            f"[STEP] step={step} "
-            f"action={action_str} "
-            f"reward={reward:.2f} "
-            f"done={str(done).lower()} "
-            f"error={error_str}"
-        )
-        sys.stdout.flush()
+            # ── [STEP] ──────────────────────────────────────
+            error_str = error if error else "null"
+            print(
+                f"[STEP] step={step} "
+                f"action={action_command_clean} "
+                f"reward={reward:.2f} "
+                f"done={str(done).lower()} "
+                f"error={error_str}"
+            )
+            sys.stdout.flush()
 
     # ── [END] ────────────────────────────────────────────────
     final_score = rewards[-1] if rewards else 0.0
@@ -271,6 +205,11 @@ def run_agent(task_id: str = "easy") -> None:
         f"rewards={rewards_str}"
     )
     sys.stdout.flush()
+
+
+def run_agent(task_id: str = "easy") -> None:
+    """Sync wrapper for the async agent loop."""
+    asyncio.run(run_agent_async(task_id))
 
 
 # ---------------------------------------------------------------------------

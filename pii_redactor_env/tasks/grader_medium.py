@@ -31,7 +31,7 @@ NON_SSN_PATTERNS: list[re.Pattern] = [
     re.compile(r"\b\d{1,2}\.\d+ million\b"),   # Dollar amounts like 2.3 million
     re.compile(r"\b\d{3,4} (tickets|records)\b"),  # Counts like "147 tickets"
     re.compile(r"PRD-\d+"),                    # Product IDs
-    re.compile(r"\b\d{4}\b(?![-])"),           # 4-digit numbers (extensions, times) not followed by dash
+    re.compile(r"(?<!-)\b\d{4}\b"),            # 4-digit numbers (extensions, dates, times) not part of SSN
 ]
 
 
