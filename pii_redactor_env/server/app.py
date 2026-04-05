@@ -71,8 +71,8 @@ async def root() -> str:
 
         <div class="card">
             <h2>Interactive Demo</h2>
-            <p>Click the button below to simulate an AI agent performing a redaction task on a CSV file.</p>
-            <button id="demoBtn" class="btn" onclick="runDemo()">Run Automatic Demo</button>
+            <p>Click the button below to simulate an AI agent performing a redaction task using a stateful WebSocket connection.</p>
+            <button id="demoBtn" class="btn" onclick="runDemo()">Run Stateful Demo</button>
             
             <div id="demoOutput" style="display: none; margin-top: 30px;">
                 <div class="status-grid">
@@ -81,11 +81,11 @@ async def root() -> str:
                     <div class="status-item"><span class="status-label">Done Status</span><span id="doneVal" class="status-value">False</span></div>
                 </div>
                 
-                <h3>Last Action Taken</h3>
-                <pre id="actionDisplay">Waiting for input...</pre>
+                <h3 id="stepTitle">Initializing Session...</h3>
+                <pre id="actionDisplay">Waiting for WebSocket connection...</pre>
                 
-                <h3>Environment Observation</h3>
-                <pre id="obsDisplay">Waiting for input...</pre>
+                <h3>Latest Observation</h3>
+                <pre id="obsDisplay">Waiting for data...</pre>
             </div>
         </div>
 
@@ -108,72 +108,68 @@ async def root() -> str:
                 const obsDisp = document.getElementById('obsDisplay');
                 const rewardVal = document.getElementById('rewardVal');
                 const doneVal = document.getElementById('doneVal');
+                const stepTitle = document.getElementById('stepTitle');
 
                 btn.disabled = true;
                 btn.innerText = "Running Demo...";
                 output.style.display = "block";
 
-                try {
-                    // 1. Reset
-                    const resetPayload = { task_id: 'easy' };
-                    actionDisp.innerText = "ACTION: POST /reset " + JSON.stringify(resetPayload, null, 2);
-                    const resetRes = await fetch('/reset', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(resetPayload)
-                    });
-                    const resetData = await resetRes.json();
-                    obsDisp.innerText = JSON.stringify(resetData, null, 2);
-                    
-                    await new Promise(r => setTimeout(r, 1500));
+                // Determine WebSocket URL (handle HF proxy)
+                const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+                const wsUrl = protocol + '//' + window.location.host + '/ws';
+                
+                const socket = new WebSocket(wsUrl);
 
-                    // 2. Step
-                    const demoAction = {
-                        action_type: 'python',
-                        command: 'import re\\npath="customers.csv"\\nwith open(path, "r") as f: c=f.read()\\nc=re.sub(r"\\\\b\\\\d{4}[- ]?\\\\d{4}[- ]?\\\\d{4}[- ]?\\\\d{4}\\\\b", "[REDACTED]", c)\\nwith open(path, "w") as f: f.write(c)\\nprint("Redacted successfully")'
-                    };
-                    
-                    // The OpenEnv spec expects the action object to be nested inside an 'action' field
-                    const stepPayload = { action: demoAction };
-                    actionDisp.innerText = "ACTION: POST /step " + JSON.stringify(stepPayload, null, 2);
-                    
-                    const stepRes = await fetch('/step', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(stepPayload)
-                    });
-                    const stepData = await stepRes.json();
-                    obsDisp.innerText = JSON.stringify(stepData, null, 2);
+                socket.onopen = function() {
+                    stepTitle.innerText = "Step 1: Environment Reset";
+                    const resetMsg = { type: 'reset', data: { task_id: 'easy' } };
+                    actionDisp.innerText = "SEND: " + JSON.stringify(resetMsg, null, 2);
+                    socket.send(JSON.stringify(resetMsg));
+                };
 
-                    // Robust parsing of reward and done status
-                    let reward = 0.0;
-                    if (stepData.reward !== undefined && stepData.reward !== null) {
-                        reward = stepData.reward;
-                    } else if (stepData.data && stepData.data.reward !== undefined) {
-                        reward = stepData.data.reward;
-                    } else if (stepData.observation && stepData.observation.reward !== undefined) {
-                        reward = stepData.observation.reward;
+                socket.onmessage = async function(event) {
+                    const response = JSON.parse(event.data);
+                    obsDisp.innerText = JSON.stringify(response, null, 2);
+
+                    if (response.type === 'observation') {
+                        const data = response.data;
+                        
+                        // Handle Reset Response
+                        if (stepTitle.innerText.includes("Reset")) {
+                            await new Promise(r => setTimeout(r, 1500));
+                            
+                            stepTitle.innerText = "Step 2: PII Redaction";
+                            const demoAction = {
+                                action_type: 'python',
+                                command: 'import re\\npath="customers.csv"\\nwith open(path, "r") as f: c=f.read()\\nc=re.sub(r"\\\\b\\\\d{4}[- ]?\\\\d{4}[- ]?\\\\d{4}[- ]?\\\\d{4}\\\\b", "[REDACTED]", c)\\nwith open(path, "w") as f: f.write(c)\\nprint("Redacted successfully")'
+                            };
+                            const stepMsg = { type: 'step', data: demoAction };
+                            actionDisp.innerText = "SEND: " + JSON.stringify(stepMsg, null, 2);
+                            socket.send(JSON.stringify(stepMsg));
+                        } 
+                        // Handle Step Response
+                        else if (stepTitle.innerText.includes("Redaction")) {
+                            rewardVal.innerText = (data.reward !== undefined) ? data.reward.toFixed(2) : "0.00";
+                            doneVal.innerText = data.done.toString().toUpperCase();
+                            btn.innerText = "Demo Complete";
+                            socket.close();
+                        }
                     }
-                    
-                    let done = false;
-                    if (stepData.done !== undefined) {
-                        done = stepData.done;
-                    } else if (stepData.data && stepData.data.done !== undefined) {
-                        done = stepData.data.done;
-                    } else if (stepData.observation && stepData.observation.done !== undefined) {
-                        done = stepData.observation.done;
-                    }
+                };
 
-                    rewardVal.innerText = (typeof reward === 'number') ? reward.toFixed(2) : reward;
-                    doneVal.innerText = done.toString().toUpperCase();
-                    
-                    btn.innerText = "Demo Complete";
-                } catch (e) {
-                    obsDisp.innerText = "Error running demo: " + e.message + "\\nCheck browser console for details.";
-                    console.error("Demo Error:", e);
+                socket.onerror = function(error) {
+                    obsDisp.innerText = "WebSocket Error: Check browser console or Hugging Face Space status.";
+                    console.error("WS Error:", error);
                     btn.disabled = false;
                     btn.innerText = "Retry Demo";
-                }
+                };
+
+                socket.onclose = function() {
+                    if (btn.innerText !== "Demo Complete") {
+                        btn.disabled = false;
+                        btn.innerText = "Retry Demo";
+                    }
+                };
             }
         </script>
     </body>
