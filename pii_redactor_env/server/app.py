@@ -30,7 +30,7 @@ app: FastAPI = create_fastapi_app(PIIRedactorEnvironment, PIIAction, PIIObservat
 # The openenv create_fastapi_app may already register a /reset route; this
 # is a safety net to ensure the endpoint exists and returns 200.
 # ---------------------------------------------------------------------------
-@app.post("/ping")
+@app.get("/ping")
 async def ping() -> dict:
     """
     Liveness check endpoint.
@@ -39,3 +39,13 @@ async def ping() -> dict:
         A simple JSON payload confirming the server is alive.
     """
     return {"status": "alive", "environment": "pii_redactor_env"}
+
+@app.get("/health")
+async def health() -> dict:
+    """
+    Health check endpoint.
+
+    Returns:
+        A simple JSON payload confirming the server is healthy.
+    """
+    return {"status": "healthy"}
