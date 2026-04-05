@@ -47,7 +47,7 @@ async def root() -> str:
             .btn { background: #3182ce; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; transition: background 0.2s; }
             .btn:hover { background: #2b6cb0; }
             .btn:disabled { background: #a0aec0; cursor: not-allowed; }
-            pre { background: #1a202c; color: #e2e8f0; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 14px; }
+            pre { background: #1a202c; color: #e2e8f0; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 14px; min-height: 50px; }
             .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 20px; }
             .status-item { background: #ebf8ff; padding: 15px; border-radius: 6px; border-left: 4px solid #4299e1; }
             .status-label { display: block; font-size: 12px; text-transform: uppercase; color: #4a5568; font-weight: bold; }
@@ -139,14 +139,31 @@ async def root() -> str:
                         body: JSON.stringify(demoAction)
                     });
                     const stepData = await stepRes.json();
-                    
                     obsDisp.innerText = JSON.stringify(stepData, null, 2);
-                    rewardVal.innerText = stepData.reward.toFixed(2);
-                    doneVal.innerText = stepData.done.toString().toUpperCase();
+
+                    // Robust parsing of reward and done status
+                    // Reward can be top-level or nested inside observation
+                    let reward = 0.0;
+                    if (stepData.reward !== undefined && stepData.reward !== null) {
+                        reward = stepData.reward;
+                    } else if (stepData.observation && stepData.observation.reward !== undefined) {
+                        reward = stepData.observation.reward;
+                    }
+                    
+                    let done = false;
+                    if (stepData.done !== undefined) {
+                        done = stepData.done;
+                    } else if (stepData.observation && stepData.observation.done !== undefined) {
+                        done = stepData.observation.done;
+                    }
+
+                    rewardVal.innerText = (typeof reward === 'number') ? reward.toFixed(2) : reward;
+                    doneVal.innerText = done.toString().toUpperCase();
                     
                     btn.innerText = "Demo Complete";
                 } catch (e) {
-                    obsDisp.innerText = "Error running demo: " + e.message;
+                    obsDisp.innerText = "Error running demo: " + e.message + "\\nCheck browser console for details.";
+                    console.error("Demo Error:", e);
                     btn.disabled = false;
                     btn.innerText = "Retry Demo";
                 }
