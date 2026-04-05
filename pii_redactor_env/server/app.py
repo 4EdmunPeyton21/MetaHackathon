@@ -115,11 +115,12 @@ async def root() -> str:
 
                 try {
                     // 1. Reset
-                    actionDisp.innerText = "ACTION: POST /reset { task_id: 'easy' }";
+                    const resetPayload = { task_id: 'easy' };
+                    actionDisp.innerText = "ACTION: POST /reset " + JSON.stringify(resetPayload, null, 2);
                     const resetRes = await fetch('/reset', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ task_id: 'easy' })
+                        body: JSON.stringify(resetPayload)
                     });
                     const resetData = await resetRes.json();
                     obsDisp.innerText = JSON.stringify(resetData, null, 2);
@@ -131,21 +132,25 @@ async def root() -> str:
                         action_type: 'python',
                         command: 'import re\\npath="customers.csv"\\nwith open(path, "r") as f: c=f.read()\\nc=re.sub(r"\\\\b\\\\d{4}[- ]?\\\\d{4}[- ]?\\\\d{4}[- ]?\\\\d{4}\\\\b", "[REDACTED]", c)\\nwith open(path, "w") as f: f.write(c)\\nprint("Redacted successfully")'
                     };
-                    actionDisp.innerText = "ACTION: POST /step " + JSON.stringify(demoAction, null, 2);
+                    
+                    // The OpenEnv spec expects the action object to be nested inside an 'action' field
+                    const stepPayload = { action: demoAction };
+                    actionDisp.innerText = "ACTION: POST /step " + JSON.stringify(stepPayload, null, 2);
                     
                     const stepRes = await fetch('/step', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(demoAction)
+                        body: JSON.stringify(stepPayload)
                     });
                     const stepData = await stepRes.json();
                     obsDisp.innerText = JSON.stringify(stepData, null, 2);
 
                     // Robust parsing of reward and done status
-                    // Reward can be top-level or nested inside observation
                     let reward = 0.0;
                     if (stepData.reward !== undefined && stepData.reward !== null) {
                         reward = stepData.reward;
+                    } else if (stepData.data && stepData.data.reward !== undefined) {
+                        reward = stepData.data.reward;
                     } else if (stepData.observation && stepData.observation.reward !== undefined) {
                         reward = stepData.observation.reward;
                     }
@@ -153,6 +158,8 @@ async def root() -> str:
                     let done = false;
                     if (stepData.done !== undefined) {
                         done = stepData.done;
+                    } else if (stepData.data && stepData.data.done !== undefined) {
+                        done = stepData.data.done;
                     } else if (stepData.observation && stepData.observation.done !== undefined) {
                         done = stepData.observation.done;
                     }
