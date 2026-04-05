@@ -47,6 +47,7 @@ async def root() -> str:
             .btn { background: #3182ce; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; transition: background 0.2s; }
             .btn:hover { background: #2b6cb0; }
             .btn:disabled { background: #a0aec0; cursor: not-allowed; }
+            select { padding: 10px; border-radius: 6px; border: 1px solid #cbd5e0; font-size: 16px; margin-right: 10px; }
             pre { background: #1a202c; color: #e2e8f0; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 14px; min-height: 50px; }
             .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 20px; }
             .status-item { background: #ebf8ff; padding: 15px; border-radius: 6px; border-left: 4px solid #4299e1; }
@@ -54,6 +55,7 @@ async def root() -> str:
             .status-value { font-size: 18px; font-weight: bold; color: #2b6cb0; }
             .link { color: #3182ce; text-decoration: none; }
             .link:hover { text-decoration: underline; }
+            .controls { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
         </style>
     </head>
     <body>
@@ -71,12 +73,20 @@ async def root() -> str:
 
         <div class="card">
             <h2>Interactive Demo</h2>
-            <p>Click the button below to simulate an AI agent performing a redaction task using a stateful WebSocket connection.</p>
-            <button id="demoBtn" class="btn" onclick="runDemo()">Run Stateful Demo</button>
+            <p>Select a task level and click the button to simulate a scripted agent performing the redaction.</p>
+            
+            <div class="controls">
+                <select id="taskSelect">
+                    <option value="easy">Easy: Credit Cards (CSV)</option>
+                    <option value="medium">Medium: SSNs (Chat Logs)</option>
+                    <option value="hard">Hard: Mixed PII (Nested JSON)</option>
+                </select>
+                <button id="demoBtn" class="btn" onclick="runDemo()">Run Stateful Demo</button>
+            </div>
             
             <div id="demoOutput" style="display: none; margin-top: 30px;">
                 <div class="status-grid">
-                    <div class="status-item"><span class="status-label">Current Task</span><span id="taskVal" class="status-value">Easy (CSV)</span></div>
+                    <div class="status-item"><span class="status-label">Active Task</span><span id="taskVal" class="status-value">...</span></div>
                     <div class="status-item"><span class="status-label">Reward / Score</span><span id="rewardVal" class="status-value">0.00</span></div>
                     <div class="status-item"><span class="status-label">Done Status</span><span id="doneVal" class="status-value">False</span></div>
                 </div>
@@ -101,14 +111,27 @@ async def root() -> str:
         </div>
 
         <script>
+            const REDACTION_SCRIPTS = {
+                easy: 'import re\\npath="customers.csv"\\nwith open(path, "r") as f: c=f.read()\\nc=re.sub(r"\\\\b\\\\d{4}[- ]?\\\\d{4}[- ]?\\\\d{4}[- ]?\\\\d{4}\\\\b", "[REDACTED]", c)\\nwith open(path, "w") as f: f.write(c)\\nprint("Redacted CSV successfully")',
+                
+                medium: 'import re\\npath="chat_logs.txt"\\nwith open(path, "r") as f: c=f.read()\\nc=re.sub(r"\\\\b\\\\d{3}-\\\\d{2}-\\\\d{4}\\\\b", "[REDACTED]", c)\\nwith open(path, "w") as f: f.write(c)\\nprint("Redacted chat logs successfully")',
+                
+                hard: 'import json, re\\npath="records.json"\\nwith open(path, "r") as f: data=json.load(f)\\ndef r(obj):\\n  if isinstance(obj, dict): return {k: r(v) for k, v in obj.items()}\\n  if isinstance(obj, list): return [r(i) for i in obj]\\n  if isinstance(obj, str):\\n    obj = re.sub(r"\\\\b\\\\d{4}[- ]?\\\\d{4}[- ]?\\\\d{4}[- ]?\\\\d{4}\\\\b", "[REDACTED]", obj)\\n    obj = re.sub(r"\\\\b\\\\d{3}-\\\\d{2}-\\\\d{4}\\\\b", "[REDACTED]", obj)\\n    obj = re.sub(r"\\\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Z|a-z]{2,}\\\\b", "[REDACTED]", obj)\\n    obj = re.sub(r"\\\\(\\\\d{3}\\\\) \\\\d{3}-\\\\d{4}", "[REDACTED]", obj)\\n  return obj\\ndata["customers"] = r(data["customers"])\\nwith open(path, "w") as f: json.dump(data, f, indent=2)\\nprint("Redacted nested JSON successfully")'
+            };
+
             async function runDemo() {
                 const btn = document.getElementById('demoBtn');
+                const taskSelect = document.getElementById('taskSelect');
                 const output = document.getElementById('demoOutput');
                 const actionDisp = document.getElementById('actionDisplay');
                 const obsDisp = document.getElementById('obsDisplay');
                 const rewardVal = document.getElementById('rewardVal');
                 const doneVal = document.getElementById('doneVal');
+                const taskVal = document.getElementById('taskVal');
                 const stepTitle = document.getElementById('stepTitle');
+
+                const selectedTask = taskSelect.value;
+                taskVal.innerText = selectedTask.toUpperCase();
 
                 btn.disabled = true;
                 btn.innerText = "Running Demo...";
@@ -122,7 +145,7 @@ async def root() -> str:
 
                 socket.onopen = function() {
                     stepTitle.innerText = "Step 1: Environment Reset";
-                    const resetMsg = { type: 'reset', data: { task_id: 'easy' } };
+                    const resetMsg = { type: 'reset', data: { task_id: selectedTask } };
                     actionDisp.innerText = "SEND: " + JSON.stringify(resetMsg, null, 2);
                     socket.send(JSON.stringify(resetMsg));
                 };
@@ -138,17 +161,17 @@ async def root() -> str:
                         if (stepTitle.innerText.includes("Reset")) {
                             await new Promise(r => setTimeout(r, 1500));
                             
-                            stepTitle.innerText = "Step 2: PII Redaction";
+                            stepTitle.innerText = "Step 2: PII Redaction Execution";
                             const demoAction = {
                                 action_type: 'python',
-                                command: 'import re\\npath="customers.csv"\\nwith open(path, "r") as f: c=f.read()\\nc=re.sub(r"\\\\b\\\\d{4}[- ]?\\\\d{4}[- ]?\\\\d{4}[- ]?\\\\d{4}\\\\b", "[REDACTED]", c)\\nwith open(path, "w") as f: f.write(c)\\nprint("Redacted successfully")'
+                                command: REDACTION_SCRIPTS[selectedTask]
                             };
                             const stepMsg = { type: 'step', data: demoAction };
                             actionDisp.innerText = "SEND: " + JSON.stringify(stepMsg, null, 2);
                             socket.send(JSON.stringify(stepMsg));
                         } 
                         // Handle Step Response
-                        else if (stepTitle.innerText.includes("Redaction")) {
+                        else if (stepTitle.innerText.includes("Execution")) {
                             rewardVal.innerText = (data.reward !== undefined) ? data.reward.toFixed(2) : "0.00";
                             doneVal.innerText = data.done.toString().toUpperCase();
                             btn.innerText = "Demo Complete";
