@@ -1,6 +1,5 @@
 ---
 title: PII Redactor Environment
-emoji: 🛡️
 colorFrom: blue
 colorTo: green
 sdk: docker
