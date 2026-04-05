@@ -1,78 +1,82 @@
-# 🛡️ PII Redactor Environment
+# PII Redactor Environment
 
-> **Data Privacy Compliance Agent** — An OpenEnv environment for the Meta × Hugging Face OpenEnv AI Hackathon 2026
+> **Data Privacy Compliance Benchmark** — An OpenEnv environment for the Meta x Hugging Face OpenEnv Hackathon 2026
 
 ## Overview
 
-The **PII Redactor Environment** simulates the real-world task of a Data Engineer or Privacy Officer who must sanitize sensitive customer data to comply with regulations like GDPR or CCPA. 
+The PII Redactor Environment is designed to simulate the responsibilities of a Data Engineer or Privacy Officer tasked with sanitizing sensitive data. This environment evaluates the performance of AI agents in ensuring regulatory compliance (e.g., GDPR, CCPA) by identifying and removing Personally Identifiable Information (PII) from diverse datasets.
 
-An AI agent is given a directory of messy, simulated customer data (CSVs, text logs, nested JSONs). The agent must write and execute Python scripts or use bash commands to **permanently redact PII** (credit cards, SSNs, emails, phone numbers) without corrupting non-sensitive data or altering the file structure.
+Agents are provided with simulated customer data in various formats, including CSV, unstructured text logs, and nested JSON files. The objective is to implement precise redactions (e.g., credit card numbers, SSNs, emails, and phone numbers) while maintaining data integrity for all non-sensitive information.
 
-## Action / Observation Space
+## Action and Observation Space
 
 ### Action Space (`PIIAction`)
-The agent submits actions as a JSON object:
-- `action_type`: Either `"bash"` (for exploration/verification) or `"python"` (for processing).
-- `command`: The shell command or full Python script to execute.
+Actions are submitted as JSON objects with the following parameters:
+- **action_type**: Specifies the execution environment, either `"bash"` for system-level operations or `"python"` for script-based data processing.
+- **command**: The specific shell command or Python source code to be executed within the workspace.
 
 ### Observation Space (`PIIObservation`)
-After each step, the agent receives:
-- `stdout` / `stderr`: Output from the executed command.
-- `exit_code`: Status of the execution (0 for success).
-- `file_tree`: List of all files currently in the workspace.
-- `reward`: Current task score (0.0 to 1.0) based on redaction success and data integrity.
-- `done`: Boolean indicating if the episode has ended.
+The environment returns detailed feedback after each execution step:
+- **stdout / stderr**: Standard output and error streams captured from the execution.
+- **exit_code**: The process exit status (0 indicates successful execution).
+- **file_tree**: A comprehensive list of relative file paths within the current workspace.
+- **reward**: A performance score (0.0 to 1.0) derived from redaction accuracy and structural integrity.
+- **done**: A boolean flag indicating the termination of the current episode.
 
-## Tasks & Graders
+## Tasks and Evaluation
 
-| ID | Difficulty | Description | PII Types |
-|----|-----------|-------------|-----------|
-| `easy` | ⭐ | Redact Credit Cards from CSV | 16-digit Credit Card numbers |
-| `medium` | ⭐⭐ | Redact SSNs from Chat Logs | `XXX-XX-XXXX` formatted SSNs |
-| `hard` | ⭐⭐⭐ | Mixed PII from Nested JSON | CCs, SSNs, Emails, Phone Numbers |
+The environment features three standardized tasks with increasing levels of complexity:
+
+| Task ID | Difficulty | Objective | PII Focus |
+| :--- | :--- | :--- | :--- |
+| easy | Level 1 | Redact credit card numbers from a structured CSV file. | 16-digit CC numbers |
+| medium | Level 2 | Extract and mask SSNs from unstructured chat transcripts. | XXX-XX-XXXX format |
+| hard | Level 3 | Sanitize mixed PII from deeply nested JSON structures. | CC, SSN, Email, Phone |
 
 ### Grading Criteria
-Each task uses a deterministic grader that calculates a score from **0.0 to 1.0**:
-- **Redaction Success (40-50%)**: Percentage of PII successfully removed.
-- **Structural Integrity (25%)**: Ensuring file formats, row counts, and JSON nesting remain intact.
-- **Non-PII Preservation (25%)**: Verifying that non-sensitive data (IDs, names, etc.) is not accidentally redacted.
+Performance is evaluated using a deterministic scoring system (0.0 to 1.0) based on:
+- **Redaction Success (40-50%)**: Measured by the effective removal of all targeted PII.
+- **Structural Integrity (25%)**: Ensures that file formats, row counts, and data schemas remain intact.
+- **Non-PII Preservation (25%)**: Penalizes the inadvertent redaction of non-sensitive data points (e.g., IDs, product codes).
 
-## Quick Start
+## Local Setup and Usage
 
-### Installation
+### Package Installation
+Install the package in development mode using the following command:
 ```bash
 pip install -e .
 ```
 
-### Run Server Locally
+### Server Execution
+Launch the FastAPI server locally:
 ```bash
 uvicorn pii_redactor_env.server.app:app --host 0.0.0.0 --port 7860
 ```
 
-### Run Baseline Inference
+### Baseline Evaluation
+Execute the baseline inference agent (OpenAI API key required):
 ```bash
-# Requires OPENAI_API_KEY
 python -m pii_redactor_env.inference.inference --task easy
 ```
 
-## Baseline Scores
+## Baseline Performance Metrics
 
-The following scores represent the performance of a scripted redaction agent (baseline) against the environment.
+The following scores represent the results achieved by a scripted regex-based baseline agent:
 
-| Task | Model | Score | Success Rate |
-|------|-------|-------|--------------|
-| Easy | Scripted (Regex) | 1.000 | 100% |
-| Medium | Scripted (Regex) | 1.000 | 100% |
-| Hard | Scripted (Regex) | 1.000 | 100% |
+| Task | Methodology | Performance Score | Success Rate |
+| :--- | :--- | :--- | :--- |
+| Easy | Scripted Regex | 1.000 | 100% |
+| Medium | Scripted Regex | 1.000 | 100% |
+| Hard | Scripted Regex | 1.000 | 100% |
 
-## Architecture
+## Technical Architecture
 
-- `pii_redactor_env/models.py`: Pydantic schemas for actions, observations, and state.
-- `pii_redactor_env/server/`: FastAPI server and sandboxed execution logic.
-- `pii_redactor_env/tasks/`: Deterministic graders for each difficulty level.
-- `pii_redactor_env/data/`: Synthetic data generation and seed datasets.
-- `pii_redactor_env/client.py`: Typed client for easy environment interaction.
+- **pii_redactor_env/models.py**: Definitions for Action, Observation, and State schemas.
+- **pii_redactor_env/server/**: Implementation of the FastAPI server and execution logic.
+- **pii_redactor_env/tasks/**: Deterministic grading logic for each benchmark task.
+- **pii_redactor_env/data/**: Synthetic data generation scripts and seed datasets.
+- **pii_redactor_env/client.py**: Standardized client for environment interaction.
 
 ## License
 
-BSD-3-Clause
+This project is licensed under the BSD-3-Clause License.
