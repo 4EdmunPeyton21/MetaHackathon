@@ -3,8 +3,7 @@ title: The Data Privacy Compliance Agent (PII Redactor)
 emoji: 🛡️
 colorFrom: blue
 colorTo: green
-sdk: fastapi
-app_file: server/app.py
+sdk: docker
 pinned: false
 license: bsd-3-clause
 ---
