@@ -24,15 +24,15 @@ SSN_PATTERN: re.Pattern = re.compile(r"\b\d{3}-\d{2}-\d{4}\b")
 # Chat message format: [HH:MM:SS] username: message
 MESSAGE_FORMAT: re.Pattern = re.compile(r"^\[\d{2}:\d{2}:\d{2}\]\s+\w+:")
 
-# Non-SSN numeric tokens to check for over-redaction:
-# Order IDs (#12345), extension numbers, dollar amounts, counts, product IDs
-NON_SSN_PATTERNS: list[re.Pattern] = [
-    re.compile(r"#\d{4,}"),                    # Order/ticket IDs like #78432
-    re.compile(r"\b\d{1,2}\.\d+ million\b"),   # Dollar amounts like 2.3 million
-    re.compile(r"\b\d{3,4} (tickets|records)\b"),  # Counts like "147 tickets"
-    re.compile(r"PRD-\d+"),                    # Product IDs
-    re.compile(r"(?<!-)\b\d{4}\b"),            # 4-digit numbers (extensions, dates, times) not part of SSN
-]
+# Combined super-pattern for non-SSN numeric tokens to check for over-redaction
+# Combines: Order IDs, dollar amounts, counts, Product IDs, and 4-digit extensions/dates
+SUPER_NON_SSN_PATTERN: re.Pattern = re.compile(
+    r"(?P<order>#\d{4,})|"
+    r"(?P<money>\b\d{1,2}\.\d+ million\b)|"
+    r"(?P<count>\b\d{3,4} (?:tickets|records)\b)|"
+    r"(?P<product>PRD-\d+)|"
+    r"(?P<short>(?<!-)\b\d{4}\b)"
+)
 
 
 def _find_ssns(text: str) -> list[str]:
@@ -41,11 +41,8 @@ def _find_ssns(text: str) -> list[str]:
 
 
 def _find_non_ssn_numbers(text: str) -> set[str]:
-    """Find all non-SSN numeric tokens that should be preserved."""
-    tokens: set[str] = set()
-    for pattern in NON_SSN_PATTERNS:
-        tokens.update(pattern.findall(text))
-    return tokens
+    """Find all non-SSN numeric tokens that should be preserved using optimized super-pattern."""
+    return {m.group() for m in SUPER_NON_SSN_PATTERN.finditer(text)}
 
 
 def grade_medium(workspace_dir: str, baseline_dir: str) -> float:

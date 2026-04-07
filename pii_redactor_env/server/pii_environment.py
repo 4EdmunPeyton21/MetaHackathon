@@ -149,14 +149,8 @@ class PIIRedactorEnvironment(Environment):
     ) -> PIIObservation:
         """
         Execute the agent's action and return the resulting observation.
-
-        Args:
-            action: The agent's bash command or Python script.
-            timeout_s: Optional timeout override in seconds.
-            **kwargs: Additional keyword arguments (unused).
-
-        Returns:
-            Observation with command output, updated file tree, and reward.
+        Uses asyncio.run() to execute the asynchronous executor from this
+        synchronous method (FastAPI runs this in a thread pool).
         """
         # --- guard: episode already ended ---
         if self._state.done:
@@ -178,14 +172,29 @@ class PIIRedactorEnvironment(Environment):
         # --- increment step ---
         self._state.current_step += 1
 
-        # --- execute action ---
+        # --- execute action asynchronously via asyncio.run ---
         exec_timeout = int(timeout_s) if timeout_s else None
-        exec_result = self._executor.execute(
-            action_type=action.action_type,
-            command=action.command,
-            workspace_dir=self._workspace.workspace_dir,
-            timeout=exec_timeout,
-        )
+        
+        import asyncio
+        try:
+            exec_result = asyncio.run(self._executor.execute(
+                action_type=action.action_type,
+                command=action.command,
+                workspace_dir=self._workspace.workspace_dir,
+                timeout=exec_timeout,
+            ))
+        except RuntimeError:
+            # Fallback for cases where an event loop is already running in this thread
+            loop = asyncio.new_event_loop()
+            try:
+                exec_result = loop.run_until_complete(self._executor.execute(
+                    action_type=action.action_type,
+                    command=action.command,
+                    workspace_dir=self._workspace.workspace_dir,
+                    timeout=exec_timeout,
+                ))
+            finally:
+                loop.close()
 
         # --- run grader ---
         task_info = TASK_REGISTRY[self._state.task_id]

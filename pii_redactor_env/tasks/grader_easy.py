@@ -20,22 +20,18 @@ import os
 import re
 from typing import Optional
 
-# Credit card regex patterns
-CC_PATTERNS: list[re.Pattern] = [
-    re.compile(r"\b\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b"),  # 16 digits with optional separators
-    re.compile(r"\b\d{16}\b"),                                   # 16 contiguous digits
-]
+# Credit card regex patterns combined into a single super-pattern for speed
+SUPER_PATTERN: re.Pattern = re.compile(
+    r"\b(?:\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}|\d{16})\b"
+)
 
 # Columns that are never PII (used for integrity checking)
 NON_PII_COLUMNS: set[str] = {"id", "first_name", "last_name", "address"}
 
 
 def _count_cc_matches(text: str) -> int:
-    """Count all credit card pattern matches in a string."""
-    count = 0
-    for pattern in CC_PATTERNS:
-        count += len(pattern.findall(text))
-    return count
+    """Count all credit card pattern matches in a string using the optimized super-pattern."""
+    return len(SUPER_PATTERN.findall(text))
 
 
 def _read_csv(filepath: str) -> list[dict[str, str]]:
