@@ -9,7 +9,7 @@ description: >
 
 type: space
 runtime: fastapi
-app: pii_redactor_env.server.app:app
+app: server.app:main
 port: 7860
 
 action: pii_redactor_env.models:PIIAction

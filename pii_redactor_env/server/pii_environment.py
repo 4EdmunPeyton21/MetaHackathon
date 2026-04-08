@@ -29,7 +29,7 @@ from pii_redactor_env.models import (
 )
 from pii_redactor_env.server.executor import Executor
 from pii_redactor_env.server.workspace import WorkspaceManager
-from pii_redactor_env.tasks.task_registry import TASK_REGISTRY
+from pii_redactor_env.tasks import TASK_REGISTRY
 
 
 class PIIRedactorEnvironment(Environment):
