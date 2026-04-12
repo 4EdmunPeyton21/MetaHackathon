@@ -24,7 +24,7 @@ tasks:
     difficulty: easy
     max_steps: 15
     seed_data_dir: pii_redactor_env/data/easy/
-    grader: pii_redactor_env.tasks.grader_easy:grade_easy
+    grader: tasks.grader_easy:grade_easy
 
   - id: medium
     name: "Redact SSNs from Chat Logs"
@@ -35,7 +35,7 @@ tasks:
     difficulty: medium
     max_steps: 20
     seed_data_dir: pii_redactor_env/data/medium/
-    grader: pii_redactor_env.tasks.grader_medium:grade_medium
+    grader: tasks.grader_medium:grade_medium
 
   - id: hard
     name: "Redact Mixed PII from Nested JSON"
@@ -46,7 +46,7 @@ tasks:
     difficulty: hard
     max_steps: 30
     seed_data_dir: pii_redactor_env/data/hard/
-    grader: pii_redactor_env.tasks.grader_hard:grade_hard
+    grader: tasks.grader_hard:grade_hard
 
 metadata:
   author: "PII Redactor Team"

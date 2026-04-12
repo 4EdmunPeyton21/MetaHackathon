@@ -20,6 +20,7 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 # -- Copy application code ----------------------------------------------------
 # We copy the pii_redactor_env package into the container
 COPY pii_redactor_env /app/pii_redactor_env/
+COPY tasks /app/tasks/
 COPY openenv.yaml /app/openenv.yaml
 COPY pyproject.toml /app/pyproject.toml
 COPY README.md /app/README.md
