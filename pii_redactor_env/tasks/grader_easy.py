@@ -25,13 +25,13 @@ def grade_easy(workspace_dir: str, baseline_dir: str) -> float:
     baseline_path = os.path.join(baseline_dir, "customers.csv")
 
     if not os.path.exists(redacted_path):
-        return 0.0
+        return 0.01
 
     try:
         redacted_rows = _read_csv(redacted_path)
         baseline_rows = _read_csv(baseline_path)
     except Exception:
-        return 0.0
+        return 0.01
 
     baseline_cc_count = 0
     for row in baseline_rows:
@@ -69,4 +69,4 @@ def grade_easy(workspace_dir: str, baseline_dir: str) -> float:
         integrity_score = matching_cells / total_non_pii_cells if total_non_pii_cells > 0 else 1.0
 
     final_score = 0.50 * pii_removal_score + 0.25 * row_preservation_score + 0.25 * integrity_score
-    return round(min(1.0, max(0.0, final_score)), 4)
+    return round(min(0.99, max(0.01, final_score)), 4)

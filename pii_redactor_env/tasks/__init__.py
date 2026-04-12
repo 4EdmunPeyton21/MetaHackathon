@@ -4,6 +4,14 @@ from pii_redactor_env.tasks.grader_easy import grade_easy
 from pii_redactor_env.tasks.grader_medium import grade_medium
 from pii_redactor_env.tasks.grader_hard import grade_hard
 
+__all__ = [
+    "grade_easy",
+    "grade_medium",
+    "grade_hard",
+    "TASK_REGISTRY",
+    "TASKS",
+]
+
 TASK_REGISTRY: dict[str, dict[str, Any]] = {
     "easy": {
         "id": "easy",

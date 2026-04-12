@@ -25,13 +25,13 @@ def grade_medium(workspace_dir: str, baseline_dir: str) -> float:
     baseline_path = os.path.join(baseline_dir, "chat_logs.txt")
 
     if not os.path.exists(redacted_path):
-        return 0.0
+        return 0.01
 
     try:
         with open(redacted_path, "r", encoding="utf-8") as f: redacted_text = f.read()
         with open(baseline_path, "r", encoding="utf-8") as f: baseline_text = f.read()
     except Exception:
-        return 0.0
+        return 0.01
 
     redacted_lines = [l for l in redacted_text.strip().splitlines() if l.strip()]
     baseline_lines = [l for l in baseline_text.strip().splitlines() if l.strip()]
@@ -54,4 +54,4 @@ def grade_medium(workspace_dir: str, baseline_dir: str) -> float:
     over_redaction_score = sum(1 for token in baseline_non_ssn if token in redacted_text) / len(baseline_non_ssn) if baseline_non_ssn else 1.0
 
     final_score = 0.50 * ssn_removal_score + 0.25 * structure_score + 0.25 * over_redaction_score
-    return round(min(1.0, max(0.0, final_score)), 4)
+    return round(min(0.99, max(0.01, final_score)), 4)

@@ -52,12 +52,12 @@ def grade_hard(workspace_dir: str, baseline_dir: str) -> float:
     redacted_path = os.path.join(workspace_dir, "records.json")
     baseline_path = os.path.join(baseline_dir, "records.json")
 
-    if not os.path.exists(redacted_path): return 0.0
+    if not os.path.exists(redacted_path): return 0.01
 
     try:
         with open(redacted_path, "r", encoding="utf-8") as f: redacted_data = json.load(f)
         with open(baseline_path, "r", encoding="utf-8") as f: baseline_data = json.load(f)
-    except: return 0.0
+    except: return 0.01
 
     baseline_strings = _collect_string_values(baseline_data)
     redacted_strings = _collect_string_values(redacted_data)
@@ -81,4 +81,4 @@ def grade_hard(workspace_dir: str, baseline_dir: str) -> float:
     value_preservation_score = preserved_non_pii / total_non_pii if total_non_pii > 0 else 1.0
 
     final_score = 0.40 * pii_removal_score + 0.25 * structure_score + 0.25 * value_preservation_score + 0.10 * 1.0
-    return round(min(1.0, max(0.0, final_score)), 4)
+    return round(min(0.99, max(0.01, final_score)), 4)

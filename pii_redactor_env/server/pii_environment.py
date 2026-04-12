@@ -205,7 +205,7 @@ class PIIRedactorEnvironment(Environment):
                 baseline_dir=self._workspace.abs_seed_data_dir,
             )
         except Exception as e:
-            reward = 0.0
+            reward = 0.01
 
         self._state.last_reward = reward
 
@@ -213,7 +213,7 @@ class PIIRedactorEnvironment(Environment):
         if self._state.current_step >= self._state.max_steps:
             self._state.done = True
 
-        if reward is not None and reward >= 1.0:
+        if reward is not None and reward >= 0.99:
             self._state.done = True
 
         # --- build observation ---
